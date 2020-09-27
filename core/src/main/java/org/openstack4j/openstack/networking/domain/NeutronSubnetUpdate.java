@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
+import com.google.common.base.Strings;
 import org.openstack4j.model.ModelEntity;
 import org.openstack4j.model.network.Subnet;
 
@@ -41,9 +42,10 @@ public class NeutronSubnetUpdate implements ModelEntity {
         ns.dnsNames = in.getDnsNames();
         ns.pools = (List<NeutronPool>) in.getAllocationPools();
         ns.hostRoutes = (List<NeutronHostRoute>) in.getHostRoutes();
-        ns.gateway = in.getGateway();
+        if (Strings.isNullOrEmpty(in.getGateway())) ns.gateway = in.getGateway();
         ns.enabledhcp = in.isDHCPEnabled();
         return ns;
     }
+
 
 }

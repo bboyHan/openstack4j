@@ -10,6 +10,7 @@ import org.openstack4j.model.common.builder.ResourceBuilder;
 import org.openstack4j.model.network.*;
 import org.openstack4j.model.network.builder.PortBuilder;
 import org.openstack4j.openstack.common.ListResult;
+import org.openstack4j.openstack.common.TimeEntity;
 
 import java.util.*;
 
@@ -17,10 +18,11 @@ import java.util.*;
  * A Neutron Port
  *
  * @author Jeremy Unruh
+ * @author bboyHan
  */
 @JsonRootName("port")
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class NeutronPort implements Port {
+public class NeutronPort extends TimeEntity implements Port {
 
     private static final long serialVersionUID = 1L;
 
@@ -29,52 +31,36 @@ public class NeutronPort implements Port {
 
     @JsonProperty("admin_state_up")
     private boolean adminStateUp = true;
-
     @JsonProperty("device_id")
     private String deviceId;
-
     @JsonProperty("device_owner")
     private String deviceOwner;
-
     @JsonProperty("fixed_ips")
     private Set<NeutronIP> fixedIps;
-
     @JsonProperty("allowed_address_pairs")
     private Set<NeutronAllowedAddressPair> allowedAddressPairs;
-
     @JsonProperty("mac_address")
     private String macAddress;
-
     @JsonProperty("network_id")
     private String networkId;
-
     @JsonProperty("status")
     private State state;
-
     @JsonProperty("tenant_id")
     private String tenantId;
-
     @JsonProperty("security_groups")
     private List<String> securityGroups;
-
     @JsonProperty("extra_dhcp_opts")
     private List<NeutronExtraDhcpOptCreate> extraDhcpOptCreates;
-
     @JsonProperty("port_security_enabled")
     private Boolean portSecurityEnabled;
-
     @JsonProperty("binding:host_id")
     private String hostId;
-
     @JsonProperty("binding:vif_type")
     private String vifType;
-
     @JsonProperty("binding:vif_details")
     private Map<String, Object> vifDetails;
-
     @JsonProperty("binding:vnic_type")
     private String vNicType;
-
     @JsonProperty("binding:profile")
     private Map<String, Object> profile;
 

@@ -9,6 +9,7 @@ import org.openstack4j.model.common.builder.ResourceBuilder;
 import org.openstack4j.model.network.*;
 import org.openstack4j.model.network.builder.SubnetBuilder;
 import org.openstack4j.openstack.common.ListResult;
+import org.openstack4j.openstack.common.TimeEntity;
 
 import java.util.List;
 
@@ -19,7 +20,7 @@ import java.util.List;
  */
 @JsonRootName("subnet")
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class NeutronSubnet implements Subnet {
+public class NeutronSubnet extends TimeEntity implements Subnet {
 
     private static final long serialVersionUID = 1L;
 

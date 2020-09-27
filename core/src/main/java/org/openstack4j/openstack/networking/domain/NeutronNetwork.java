@@ -11,6 +11,7 @@ import org.openstack4j.model.network.State;
 import org.openstack4j.model.network.Subnet;
 import org.openstack4j.model.network.builder.NetworkBuilder;
 import org.openstack4j.openstack.common.ListResult;
+import org.openstack4j.openstack.common.TimeEntity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,9 +20,10 @@ import java.util.List;
  * An OpenStack (Neutron) network
  *
  * @author Jeremy Unruh
+ * @author bboyHan
  */
 @JsonRootName("network")
-public class NeutronNetwork implements Network {
+public class NeutronNetwork extends TimeEntity implements Network {
 
     private static final long serialVersionUID = 1L;
 
@@ -48,8 +50,6 @@ public class NeutronNetwork implements Network {
     private List<String> availabilityZoneHints;
     @JsonProperty("availability_zones")
     private List<String> availabilityZones;
-    @JsonProperty("created_at")
-    private String createdTime;
 
     /**
      * The maximum transmission unit (MTU) value to address fragmentation. Minimum value is 68 for IPv4, and 1280 for IPv6.
@@ -221,7 +221,6 @@ public class NeutronNetwork implements Network {
     public List<String> getAvailabilityZones() {
         return availabilityZones;
     }
-
 
     /**
      * {@inheritDoc}

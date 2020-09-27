@@ -72,6 +72,4 @@ public interface Network extends Resource, Buildable<NetworkBuilder> {
      * @return the list of the availability zone for the network.
      */
     List<String> getAvailabilityZones();
-
-
 }
