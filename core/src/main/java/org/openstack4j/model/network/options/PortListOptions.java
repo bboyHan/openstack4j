@@ -1,17 +1,11 @@
 package org.openstack4j.model.network.options;
 
-import com.google.common.collect.Maps;
-
-import java.util.Map;
-
 /**
  * Provides server-side filtering options for listing ports
  *
  * @author Jeremy Unruh
  */
-public class PortListOptions {
-
-    private Map<String, String> queryParams = Maps.newHashMap();
+public class PortListOptions extends BaseListOptions<PortListOptions> {
 
     private PortListOptions() {
     }
@@ -103,13 +97,20 @@ public class PortListOptions {
         return add("mac_address", macAddress);
     }
 
-    private PortListOptions add(String param, String value) {
-        if (value != null)
-            this.queryParams.put(param, value);
+    /**
+     * port status - ACTIVE, DOWN, BUILD and ERROR
+     *
+     * @param status - ACTIVE, DOWN, BUILD and ERROR
+     * @return options
+     */
+    public PortListOptions status(String status) {
+        return add("status", status);
+    }
+
+
+    public PortListOptions add(String key, String value) {
+        putParams(key, value);
         return this;
     }
 
-    public Map<String, String> getOptions() {
-        return queryParams;
-    }
 }

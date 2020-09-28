@@ -3,9 +3,9 @@ package org.openstack4j.openstack.networking.internal;
 import org.openstack4j.api.networking.SubnetService;
 import org.openstack4j.model.common.ActionResponse;
 import org.openstack4j.model.network.Subnet;
+import org.openstack4j.model.network.options.SubnetListOptions;
 import org.openstack4j.openstack.networking.domain.NeutronSubnet;
 import org.openstack4j.openstack.networking.domain.NeutronSubnet.Subnets;
-import org.openstack4j.openstack.networking.domain.NeutronSubnetUpdate;
 
 import java.util.List;
 
@@ -15,6 +15,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * OpenStack (Neutron) Subnet based Operations implementation
  *
  * @author Jeremy Unruh
+ * @author bboyHan
  */
 public class SubnetServiceImpl extends BaseNetworkingServices implements SubnetService {
 
@@ -24,6 +25,11 @@ public class SubnetServiceImpl extends BaseNetworkingServices implements SubnetS
     @Override
     public List<? extends Subnet> list() {
         return get(Subnets.class, uri("/subnets")).execute().getList();
+    }
+
+    @Override
+    public List<? extends Subnet> list(SubnetListOptions options) {
+        return get(Subnets.class, uri("/subnets")).paramLists(options.getOptions()).execute().getList();
     }
 
     /**
@@ -59,7 +65,7 @@ public class SubnetServiceImpl extends BaseNetworkingServices implements SubnetS
         checkNotNull(subnetId);
         checkNotNull(subnet);
         return put(NeutronSubnet.class, uri("/subnets/%s", subnetId))
-                .entity(NeutronSubnetUpdate.createFromSubnet(subnet))
+                .entity(subnet)
                 .execute();
     }
 }

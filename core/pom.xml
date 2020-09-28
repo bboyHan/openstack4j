@@ -3,7 +3,7 @@
     <parent>
         <groupId>org.pacesys</groupId>
         <artifactId>openstack4j-parent</artifactId>
-        <version>3.2.1-SNAPSHOT</version>
+        <version>3.2.2-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>openstack4j-core</artifactId>
@@ -26,7 +26,7 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
-                            <minimizeJar>true</minimizeJar>
+                            <!--                            <minimizeJar>true</minimizeJar>-->
                             <shadedArtifactAttached>true</shadedArtifactAttached>
                             <createSourcesJar>true</createSourcesJar>
                             <shadedClassifierName>withdeps</shadedClassifierName>
@@ -200,7 +200,7 @@
                 <version>2.9.1</version>
                 <configuration>
                     <author>true</author>
-                    <protected>true</protected>
+                    <!--                    <protected>true</protected>-->
                     <excludePackageNames>*.internal</excludePackageNames>
                     <reportOutputDirectory>docs</reportOutputDirectory>
                     <destDir>javadoc</destDir>

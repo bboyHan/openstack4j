@@ -4,6 +4,7 @@ import org.openstack4j.api.networking.NetworkService;
 import org.openstack4j.model.common.ActionResponse;
 import org.openstack4j.model.network.Network;
 import org.openstack4j.model.network.NetworkUpdate;
+import org.openstack4j.model.network.options.NetworkListOptions;
 import org.openstack4j.openstack.networking.domain.NeutronNetwork;
 import org.openstack4j.openstack.networking.domain.NeutronNetwork.Networks;
 
@@ -40,6 +41,12 @@ public class NetworkServiceImpl extends BaseNetworkingServices implements Networ
         Invocation<Networks> invocation = buildInvocation(filteringParams);
         return invocation.execute().getList();
     }
+
+    @Override
+    public List<? extends Network> list(NetworkListOptions options) {
+        return get(Networks.class, uri("/networks")).paramLists(options.getOptions()).execute().getList();
+    }
+
 
     /**
      * {@inheritDoc}

@@ -3,6 +3,7 @@ package org.openstack4j.api.networking;
 import org.openstack4j.common.RestService;
 import org.openstack4j.model.common.ActionResponse;
 import org.openstack4j.model.network.Subnet;
+import org.openstack4j.model.network.options.SubnetListOptions;
 
 import java.util.List;
 
@@ -10,6 +11,7 @@ import java.util.List;
  * OpenStack (Neutron) Subnet based Operations
  *
  * @author Jeremy Unruh
+ * @author bboyHan
  */
 public interface SubnetService extends RestService {
 
@@ -19,6 +21,8 @@ public interface SubnetService extends RestService {
      * @return the list of subnets or empty
      */
     List<? extends Subnet> list();
+
+    List<? extends Subnet> list(SubnetListOptions options);
 
     /**
      * Gets a Subnet by ID

@@ -5,6 +5,7 @@ import org.openstack4j.common.RestService;
 import org.openstack4j.model.common.ActionResponse;
 import org.openstack4j.model.network.Network;
 import org.openstack4j.model.network.NetworkUpdate;
+import org.openstack4j.model.network.options.NetworkListOptions;
 
 import java.util.List;
 import java.util.Map;
@@ -24,6 +25,7 @@ public interface NetworkService extends RestService {
      */
     List<? extends Network> list(Map<String, String> filteringParams);
 
+    List<? extends Network> list(NetworkListOptions options);
 
     /**
      * Lists the networks to which the current authorized tenant has access

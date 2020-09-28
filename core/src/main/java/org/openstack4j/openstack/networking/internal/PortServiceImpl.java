@@ -16,6 +16,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * OpenStack (Neutron) Port based Operations Implementation
  *
  * @author Jeremy Unruh
+ * @author bboyHan
  */
 public class PortServiceImpl extends BaseNetworkingServices implements PortService {
 
@@ -32,7 +33,7 @@ public class PortServiceImpl extends BaseNetworkingServices implements PortServi
         if (options == null)
             return list();
 
-        return get(Ports.class, uri("/ports")).params(options.getOptions()).execute().getList();
+        return get(Ports.class, uri("/ports")).paramLists(options.getOptions()).execute().getList();
     }
 
     /**
