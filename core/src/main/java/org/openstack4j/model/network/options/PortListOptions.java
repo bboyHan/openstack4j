@@ -4,6 +4,7 @@ package org.openstack4j.model.network.options;
  * Provides server-side filtering options for listing ports
  *
  * @author Jeremy Unruh
+ * @author bboyHan
  */
 public class PortListOptions extends BaseListOptions<PortListOptions> {
 
@@ -107,6 +108,17 @@ public class PortListOptions extends BaseListOptions<PortListOptions> {
         return add("status", status);
     }
 
+    public PortListOptions fixedIpWithSub(String subnetId) {
+        return add("fixed_ips", "subnet_id=" + subnetId);
+    }
+
+    public PortListOptions fixedIpWithIp(String ipAddr) {
+        return add("fixed_ips", "ip_address=" + ipAddr);
+    }
+
+    public PortListOptions fixedIpWithIpPre(String ipAddr) {
+        return add("fixed_ips", "ip_address_substr=" + ipAddr);
+    }
 
     public PortListOptions add(String key, String value) {
         putParams(key, value);

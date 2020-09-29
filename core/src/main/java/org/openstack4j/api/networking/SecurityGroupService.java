@@ -14,6 +14,7 @@ import java.util.Map;
  * Provides Neutron-based Security Group services.
  *
  * @author Nathan Anderson
+ * @author bboyHan
  */
 public interface SecurityGroupService extends RestService {
 
@@ -63,4 +64,24 @@ public interface SecurityGroupService extends RestService {
      * @return the list<? extends security group>
      */
     List<? extends SecurityGroup> list(Map<String, String> filteringParams);
+
+    /**
+     * Add tag to security group.
+     * Can also be done with SecurityGroupService#update(security group)
+     *
+     * @param securityGroupId
+     * @param tag
+     * @return
+     */
+    ActionResponse updateTag(String securityGroupId, String tag);
+
+    /**
+     * Delete tag from security group.
+     * Can also be done with SecurityGroupService#update(security group)
+     *
+     * @param securityGroupId
+     * @param tag
+     * @return
+     */
+    ActionResponse deleteTag(String securityGroupId, String tag);
 }

@@ -16,6 +16,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * FloatingIPService implementation that provides Neutron Floating-IP based Service Operations.
  *
  * @author Nathan Anderson
+ * @author bboyHan
  */
 public class SecurityGroupServiceImpl extends BaseNetworkingServices implements SecurityGroupService {
 
@@ -77,5 +78,25 @@ public class SecurityGroupServiceImpl extends BaseNetworkingServices implements 
             }
         }
         return securityGroupInvocation.execute().getList();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public ActionResponse updateTag(String securityGroupId, String tag) {
+        checkNotNull(securityGroupId);
+        checkNotNull(tag);
+        return put(ActionResponse.class, uri("/security-groups/%s/tags/%s", securityGroupId, tag)).execute();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public ActionResponse deleteTag(String securityGroupId, String tag) {
+        checkNotNull(securityGroupId);
+        checkNotNull(tag);
+        return deleteWithResponse(uri("/security-groups/%s/tags/%s", securityGroupId, tag)).execute();
     }
 }
