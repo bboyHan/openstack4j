@@ -56,6 +56,16 @@ public class SubnetServiceImpl extends BaseNetworkingServices implements SubnetS
         return post(NeutronSubnet.class, uri("/subnets")).entity(subnet).execute();
     }
 
+    @Override
+    public List<? extends Subnet> create(List<? extends Subnet> subnets) {
+        checkNotNull(subnets);
+        for (Subnet subnet : subnets) {
+            checkNotNull(subnet.getNetworkId(), "NetworkId is a required field");
+        }
+        return post(NeutronSubnet.Subnets.class, uri("/subnets")).entity(NeutronSubnet.Subnets.fromSubnets(subnets))
+                .execute().getList();
+    }
+
     public Subnet update(Subnet subnet) {
         checkNotNull(subnet);
         return update(subnet.getId(), subnet);

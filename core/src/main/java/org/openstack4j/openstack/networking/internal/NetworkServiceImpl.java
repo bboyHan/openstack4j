@@ -16,7 +16,8 @@ import static com.google.common.base.Preconditions.checkNotNull;
 /**
  * OpenStack (Neutron) Network based Operations
  *
- * @author Jeremy Unruh, bboyHan
+ * @author Jeremy Unruh
+ * @author bboyHan
  */
 public class NetworkServiceImpl extends BaseNetworkingServices implements NetworkService {
 
@@ -75,6 +76,12 @@ public class NetworkServiceImpl extends BaseNetworkingServices implements Networ
     public Network create(Network network) {
         checkNotNull(network);
         return post(NeutronNetwork.class, uri("/networks")).entity(network).execute();
+    }
+
+    @Override
+    public List<? extends Network> create(List<? extends Network> networks) {
+        checkNotNull(networks);
+        return post(Networks.class, uri("/networks")).entity(Networks.fromNetworks(networks)).execute().getList();
     }
 
     @Override

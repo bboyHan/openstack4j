@@ -9,6 +9,7 @@ import java.util.List;
  * Port Pair Group Service
  *
  * @author Dmitry Gerenrot
+ * @author bboyHan
  */
 public interface PortPairGroupService {
 
@@ -30,7 +31,7 @@ public interface PortPairGroupService {
     /**
      * Update a port pair group with the given id to match the given update object
      *
-     * @param id
+     * @param portPairGroupId
      * @param portPairGroup
      * @return PortPairGroup
      */

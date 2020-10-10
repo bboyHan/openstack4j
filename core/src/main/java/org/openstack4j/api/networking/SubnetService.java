@@ -48,6 +48,8 @@ public interface SubnetService extends RestService {
      */
     Subnet create(Subnet subnet);
 
+    List<? extends Subnet> create(List<? extends Subnet> subnets);
+
     /**
      * Updates a Subnet.
      * <p>

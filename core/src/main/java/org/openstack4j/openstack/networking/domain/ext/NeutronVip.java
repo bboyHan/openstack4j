@@ -14,6 +14,7 @@ import java.util.List;
 
 /**
  * @author liujunpeng
+ * @author bboyHan
  */
 @JsonRootName("vip")
 @JsonIgnoreProperties(ignoreUnknown = true)

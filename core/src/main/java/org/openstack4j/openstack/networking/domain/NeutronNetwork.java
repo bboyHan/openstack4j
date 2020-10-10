@@ -10,6 +10,7 @@ import org.openstack4j.model.network.NetworkType;
 import org.openstack4j.model.network.State;
 import org.openstack4j.model.network.Subnet;
 import org.openstack4j.model.network.builder.NetworkBuilder;
+import org.openstack4j.openstack.common.ListEntity;
 import org.openstack4j.openstack.common.ListResult;
 import org.openstack4j.openstack.common.TimeEntity;
 
@@ -275,6 +276,25 @@ public class NeutronNetwork extends TimeEntity implements Network {
         return false;
     }
 
+    @SuppressWarnings("unchecked")
+    public static NeutronNetwork fromNetwork(Network network) {
+        NeutronNetwork n = new NeutronNetwork();
+        n.name = network.getName();
+        n.status = network.getStatus();
+        n.subnets = network.getSubnets();
+        n.providerPhyNet = network.getProviderPhyNet();
+        n.adminStateUp = network.isAdminStateUp();
+        n.tenantId = network.getTenantId();
+        n.networkType = network.getNetworkType();
+        n.routerExternal = network.isRouterExternal();
+        n.shared = network.isShared();
+        n.providerSegID = network.getProviderSegID();
+        n.availabilityZoneHints = network.getAvailabilityZoneHints();
+        n.availabilityZones = network.getAvailabilityZones();
+        n.mtu = network.getMTU();
+        return n;
+    }
+
     public static class Networks extends ListResult<NeutronNetwork> {
 
         private static final long serialVersionUID = 1L;
@@ -282,8 +302,27 @@ public class NeutronNetwork extends TimeEntity implements Network {
         @JsonProperty("networks")
         private List<NeutronNetwork> networks;
 
+        public Networks() {
+            networks = new ListEntity<>();
+        }
+
         public List<NeutronNetwork> value() {
             return networks;
+        }
+
+        /**
+         * create a list of network objects
+         *
+         * @param networks the networks (source)
+         * @return the network create objects
+         */
+        @SuppressWarnings("unchecked")
+        public static NeutronNetwork.Networks fromNetworks(List<? extends Network> networks) {
+            NeutronNetwork.Networks n = new NeutronNetwork.Networks();
+            for (Network network : networks) {
+                n.networks.add(NeutronNetwork.fromNetwork(network));
+            }
+            return n;
         }
     }
 

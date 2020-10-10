@@ -19,7 +19,6 @@ public interface PortPairService {
      */
     List<? extends PortPair> list();
 
-
     /**
      * Get a Port Pair by id.
      *

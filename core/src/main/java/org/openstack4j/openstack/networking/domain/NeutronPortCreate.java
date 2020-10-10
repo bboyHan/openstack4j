@@ -96,7 +96,6 @@ public class NeutronPortCreate implements ModelEntity {
         c.vNicType = port.getvNicType();
         c.profile = port.getProfile();
 
-
         return c;
     }
 

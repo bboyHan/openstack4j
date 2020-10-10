@@ -6,6 +6,9 @@ import org.openstack4j.model.common.ActionResponse;
 import org.openstack4j.model.network.Network;
 import org.openstack4j.model.network.NetworkUpdate;
 import org.openstack4j.model.network.options.NetworkListOptions;
+import org.openstack4j.openstack.common.ListResult;
+import org.openstack4j.openstack.networking.domain.NeutronNetwork;
+import org.openstack4j.openstack.networking.domain.NeutronNetwork.Networks;
 
 import java.util.List;
 import java.util.Map;
@@ -14,6 +17,7 @@ import java.util.Map;
  * OpenStack (Neutron) Network based Operations
  *
  * @author Jeremy Unruh
+ * @author bboyHan
  */
 public interface NetworkService extends RestService {
 
@@ -67,4 +71,12 @@ public interface NetworkService extends RestService {
      */
     Network create(Network network);
 
+
+    /**
+     * Bulk create networks
+     *
+     * @param networks the network to create
+     * @return the newly created network
+     */
+    List<? extends Network> create(List<? extends Network> networks);
 }

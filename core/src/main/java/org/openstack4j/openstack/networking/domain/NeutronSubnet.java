@@ -8,6 +8,7 @@ import com.google.common.collect.Lists;
 import org.openstack4j.model.common.builder.ResourceBuilder;
 import org.openstack4j.model.network.*;
 import org.openstack4j.model.network.builder.SubnetBuilder;
+import org.openstack4j.openstack.common.ListEntity;
 import org.openstack4j.openstack.common.ListResult;
 import org.openstack4j.openstack.common.TimeEntity;
 
@@ -67,6 +68,25 @@ public class NeutronSubnet extends TimeEntity implements Subnet {
         this.cidr = cidr;
         this.ipv6AddressMode = ipv6AddressMode;
         this.ipv6RaMode = ipv6RaMode;
+    }
+
+    @SuppressWarnings("unchecked")
+    public static NeutronSubnet fromSubnet(Subnet subnet) {
+        NeutronSubnet s = new NeutronSubnet();
+        s.name = subnet.getName();
+        s.enableDHCP = subnet.isDHCPEnabled();
+        s.networkId = subnet.getNetworkId();
+        s.tenantId = subnet.getTenantId();
+        s.dnsNames = subnet.getDnsNames();
+        s.pools = (List<NeutronPool>) subnet.getAllocationPools();
+        s.hostRoutes = (List<NeutronHostRoute>) subnet.getHostRoutes();
+        s.ipVersion = subnet.getIpVersion();
+        s.gateway = subnet.getGateway();
+        s.cidr = subnet.getCidr();
+        s.ipv6AddressMode = subnet.getIpv6AddressMode();
+        s.ipv6RaMode = subnet.getIpv6RaMode();
+
+        return s;
     }
 
     public static SubnetBuilder builder() {
@@ -284,9 +304,22 @@ public class NeutronSubnet extends TimeEntity implements Subnet {
         @JsonProperty("subnets")
         private List<NeutronSubnet> subnets;
 
+        public Subnets() {
+            subnets = new ListEntity<>();
+        }
+
         @Override
         protected List<NeutronSubnet> value() {
             return subnets;
+        }
+
+        @SuppressWarnings("unchecked")
+        public static NeutronSubnet.Subnets fromSubnets(List<? extends Subnet> subnets) {
+            Subnets s = new Subnets();
+            for (Subnet subnet : subnets) {
+                s.subnets.add(NeutronSubnet.fromSubnet(subnet));
+            }
+            return s;
         }
     }
 

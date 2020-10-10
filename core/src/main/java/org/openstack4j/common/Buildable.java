@@ -5,6 +5,7 @@ package org.openstack4j.common;
  * Model classes decorated with this interface are compatible for write/update operations and can be created via the Builder API.
  *
  * @author Jeremy Unruh
+ * @author bboyHan
  */
 public interface Buildable<B> {
 
@@ -17,7 +18,7 @@ public interface Buildable<B> {
      * @param <M> The ouput IModelEntity type
      * @author Jeremy Unruh
      */
-    public interface Builder<T extends Builder<T, M>, M extends Buildable<?>> {
+    interface Builder<T extends Builder<T, M>, M extends Buildable<?>> {
 
         /**
          * Creates and return the Model Entity M
@@ -29,7 +30,7 @@ public interface Buildable<B> {
         /**
          * Creates a Builder using the param M as the default values
          *
-         * @param The Model M
+         * @param in The Model M
          * @return Builder
          */
         T from(M in);
