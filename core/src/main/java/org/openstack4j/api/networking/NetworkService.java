@@ -79,4 +79,5 @@ public interface NetworkService extends RestService {
      * @return the newly created network
      */
     List<? extends Network> create(List<? extends Network> networks);
+
 }

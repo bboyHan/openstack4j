@@ -80,6 +80,7 @@ import java.util.Map;
  * Simple API Provider which keeps internally Maps interface implementations as singletons
  *
  * @author Jeremy Unruh
+ * @author bboyHan
  */
 public class DefaultAPIProvider implements APIProvider {
 
@@ -282,6 +283,7 @@ public class DefaultAPIProvider implements APIProvider {
         bind(ActionExecutionService.class, ActionExecutionServiceImpl.class);
         bind(WorkflowEnvironmentService.class, WorkflowEnvironmentServiceImpl.class);
         bind(CronTriggerService.class, CronTriggerServiceImpl.class);
+        bind(NetIpAvailabilitiesService.class, NetIpAvailabilitiesServiceImpl.class);
     }
 
     /**
@@ -295,7 +297,7 @@ public class DefaultAPIProvider implements APIProvider {
 
         if (bindings.containsKey(api)) {
             try {
-                T impl = (T) bindings.get(api).newInstance();
+                T impl = (T) bindings.get(api).getDeclaredConstructor().newInstance();
                 instances.put(api, impl);
                 return impl;
             } catch (Exception e) {

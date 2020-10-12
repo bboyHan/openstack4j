@@ -29,6 +29,9 @@ public class SubnetServiceImpl extends BaseNetworkingServices implements SubnetS
 
     @Override
     public List<? extends Subnet> list(SubnetListOptions options) {
+        if (options == null)
+            return list();
+
         return get(Subnets.class, uri("/subnets")).paramLists(options.getOptions()).execute().getList();
     }
 

@@ -7,6 +7,7 @@ import org.openstack4j.common.RestService;
  * OpenStack Networking Operations API
  *
  * @author Jeremy Unruh
+ * @author bboyHan
  */
 public interface NetworkingService extends RestService {
 
@@ -76,4 +77,6 @@ public interface NetworkingService extends RestService {
      * @return the Availability Zone Service API
      */
     AvailabilityZoneService availabilityzone();
+
+    NetIpAvailabilitiesService netIpAvailabilities();
 }

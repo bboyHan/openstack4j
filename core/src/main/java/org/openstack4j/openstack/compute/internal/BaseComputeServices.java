@@ -11,6 +11,7 @@ import org.openstack4j.openstack.internal.BaseOpenStackService;
  * Base class for Computer / Nova services
  *
  * @author Jeremy Unruh
+ * @author bboyHan
  */
 public class BaseComputeServices extends BaseOpenStackService {
 
@@ -23,10 +24,9 @@ public class BaseComputeServices extends BaseOpenStackService {
     }
 
     protected HttpResponse invokeActionWithResponse(String serverId, ServerAction action) {
-        HttpResponse response = post(Void.class, uri("/servers/%s/action", serverId))
+        return post(Void.class, uri("/servers/%s/action", serverId))
                 .entity(action)
                 .executeWithResponse();
-        return response;
     }
 
 }

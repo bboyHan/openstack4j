@@ -8,6 +8,7 @@ import org.openstack4j.api.networking.ext.*;
  * OpenStack Networking Operations API
  *
  * @author Jeremy Unruh
+ * @author bboyHan
  */
 public class NetworkingServiceImpl implements NetworkingService {
 
@@ -113,6 +114,11 @@ public class NetworkingServiceImpl implements NetworkingService {
     @Override
     public AvailabilityZoneService availabilityzone() {
         return Apis.get(AvailabilityZoneService.class);
+    }
+
+    @Override
+    public NetIpAvailabilitiesService netIpAvailabilities() {
+        return Apis.get(NetIpAvailabilitiesService.class);
     }
 
 }

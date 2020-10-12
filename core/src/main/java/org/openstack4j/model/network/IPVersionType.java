@@ -8,13 +8,14 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * IP Address Version Type (V4/V6)
  *
  * @author Jeremy Unruh
+ * @author bboyHan
  */
 public enum IPVersionType {
     V4(4),
     V6(6);
     private final int version;
 
-    private IPVersionType(int version) {
+    IPVersionType(int version) {
         this.version = version;
     }
 

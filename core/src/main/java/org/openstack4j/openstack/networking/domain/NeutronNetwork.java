@@ -317,8 +317,8 @@ public class NeutronNetwork extends TimeEntity implements Network {
          * @return the network create objects
          */
         @SuppressWarnings("unchecked")
-        public static NeutronNetwork.Networks fromNetworks(List<? extends Network> networks) {
-            NeutronNetwork.Networks n = new NeutronNetwork.Networks();
+        public static Networks fromNetworks(List<? extends Network> networks) {
+            Networks n = new Networks();
             for (Network network : networks) {
                 n.networks.add(NeutronNetwork.fromNetwork(network));
             }

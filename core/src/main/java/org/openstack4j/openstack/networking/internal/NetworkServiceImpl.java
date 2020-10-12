@@ -45,6 +45,9 @@ public class NetworkServiceImpl extends BaseNetworkingServices implements Networ
 
     @Override
     public List<? extends Network> list(NetworkListOptions options) {
+        if (options == null)
+            return list();
+
         return get(Networks.class, uri("/networks")).paramLists(options.getOptions()).execute().getList();
     }
 
