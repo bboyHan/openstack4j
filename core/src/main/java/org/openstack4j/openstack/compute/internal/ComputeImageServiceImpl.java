@@ -3,6 +3,7 @@ package org.openstack4j.openstack.compute.internal;
 import org.openstack4j.api.compute.ComputeImageService;
 import org.openstack4j.model.common.ActionResponse;
 import org.openstack4j.model.compute.Image;
+import org.openstack4j.model.compute.options.ImageListOptions;
 import org.openstack4j.openstack.compute.domain.MetaDataWrapper;
 import org.openstack4j.openstack.compute.domain.NovaImage;
 import org.openstack4j.openstack.compute.domain.NovaImage.NovaImages;
@@ -16,6 +17,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Provides access to Compute Images.
  *
  * @author Jeremy Unruh
+ * @author bboyHan
  */
 public class ComputeImageServiceImpl extends BaseComputeServices implements ComputeImageService {
 
@@ -34,6 +36,15 @@ public class ComputeImageServiceImpl extends BaseComputeServices implements Comp
     public List<? extends Image> list(boolean detailed) {
         String uri = (detailed) ? "/images/detail" : "/images";
         return get(NovaImages.class, uri(uri)).execute().getList();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public List<? extends Image> list(ImageListOptions options) {
+        if (options == null) return list(true);
+        return get(NovaImages.class, uri("/images/detail")).paramLists(options.getOptions()).execute().getList();
     }
 
     /**

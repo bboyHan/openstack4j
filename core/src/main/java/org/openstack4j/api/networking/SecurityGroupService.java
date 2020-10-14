@@ -5,6 +5,8 @@ import org.openstack4j.common.RestService;
 import org.openstack4j.model.common.ActionResponse;
 import org.openstack4j.model.network.SecurityGroup;
 import org.openstack4j.model.network.SecurityGroupUpdate;
+import org.openstack4j.model.network.options.SecurityGroupOptions;
+import org.openstack4j.openstack.networking.domain.NeutronSecurityGroupTag;
 
 import java.util.List;
 import java.util.Map;
@@ -64,6 +66,10 @@ public interface SecurityGroupService extends RestService {
      * @return the list<? extends security group>
      */
     List<? extends SecurityGroup> list(Map<String, String> filteringParams);
+
+    List<? extends SecurityGroup> list(SecurityGroupOptions options);
+
+    NeutronSecurityGroupTag getTag(String securityGroupId);
 
     /**
      * Add tag to security group.

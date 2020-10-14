@@ -4,8 +4,10 @@ import org.openstack4j.api.networking.SecurityGroupService;
 import org.openstack4j.model.common.ActionResponse;
 import org.openstack4j.model.network.SecurityGroup;
 import org.openstack4j.model.network.SecurityGroupUpdate;
+import org.openstack4j.model.network.options.SecurityGroupOptions;
 import org.openstack4j.openstack.networking.domain.NeutronSecurityGroup;
 import org.openstack4j.openstack.networking.domain.NeutronSecurityGroup.SecurityGroups;
+import org.openstack4j.openstack.networking.domain.NeutronSecurityGroupTag;
 
 import java.util.List;
 import java.util.Map;
@@ -78,6 +80,24 @@ public class SecurityGroupServiceImpl extends BaseNetworkingServices implements 
             }
         }
         return securityGroupInvocation.execute().getList();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public List<? extends SecurityGroup> list(SecurityGroupOptions options) {
+        if (options == null) return list();
+        return get(SecurityGroups.class, uri("/security-groups")).paramLists(options.getOptions()).execute().getList();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public NeutronSecurityGroupTag getTag(String securityGroupId) {
+        checkNotNull(securityGroupId);
+        return get(NeutronSecurityGroupTag.class, uri("/security-groups/%s/tags", securityGroupId)).execute();
     }
 
     /**

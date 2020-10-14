@@ -2,6 +2,7 @@ package org.openstack4j.api.networking;
 
 import org.openstack4j.common.RestService;
 import org.openstack4j.model.network.SecurityGroupRule;
+import org.openstack4j.model.network.options.SecurityGroupOptions;
 
 import java.util.List;
 import java.util.Map;
@@ -11,6 +12,7 @@ import java.util.Map;
  * Provides Neutron-based Security Group Rule services.
  *
  * @author Nathan Anderson
+ * @author bboyHan
  */
 public interface SecurityGroupRuleService extends RestService {
 
@@ -20,6 +22,8 @@ public interface SecurityGroupRuleService extends RestService {
      * @return the list<? extends security group rules>
      */
     List<? extends SecurityGroupRule> list();
+
+    List<? extends SecurityGroupRule> list(SecurityGroupOptions options);
 
     /**
      * Gets the Security Group rule by id

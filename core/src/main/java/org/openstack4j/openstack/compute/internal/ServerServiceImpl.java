@@ -16,6 +16,7 @@ import org.openstack4j.model.compute.actions.EvacuateOptions;
 import org.openstack4j.model.compute.actions.LiveMigrateOptions;
 import org.openstack4j.model.compute.actions.RebuildOptions;
 import org.openstack4j.model.compute.builder.ServerCreateBuilder;
+import org.openstack4j.model.compute.options.ServerListOptions;
 import org.openstack4j.openstack.common.Metadata;
 import org.openstack4j.openstack.compute.domain.*;
 import org.openstack4j.openstack.compute.domain.NovaServer.Servers;
@@ -38,6 +39,7 @@ import static org.openstack4j.openstack.compute.domain.actions.CreateSnapshotAct
  * Server Operation API implementation
  *
  * @author Jeremy Unruh
+ * @author bboyHan
  */
 public class ServerServiceImpl extends BaseComputeServices implements ServerService {
 
@@ -86,6 +88,26 @@ public class ServerServiceImpl extends BaseComputeServices implements ServerServ
             }
         }
         return serverInvocation.execute().getList();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public List<? extends Server> list(ServerListOptions options) {
+        return get(Servers.class, uri("/servers/detail")).paramLists(options.getOptions())
+                .execute().getList();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public List<? extends Server> list(ServerListOptions options, NovaApiVersionType novaApiVersion) {
+        return get(Servers.class, uri("/servers/detail"))
+                .header("X-Openstack-Nova-Api-Version", novaApiVersion.getNovaApiVersion())
+                .paramLists(options.getOptions())
+                .execute().getList();
     }
 
     /**
@@ -342,7 +364,7 @@ public class ServerServiceImpl extends BaseComputeServices implements ServerServ
     }
 
     /**
-     * {{@link #invokeAction(String, String)}
+     * {{@link BaseComputeServices#invokeAction(String, ServerAction action)}
      */
     @Override
     public ActionResponse backupServer(String serverId, BackupOptions options) {
@@ -458,5 +480,11 @@ public class ServerServiceImpl extends BaseComputeServices implements ServerServ
         return post(AdminPass.class, uri("/servers/%s/action", serverId))
                 .entity(EvacuateAction.create(options))
                 .execute();
+    }
+
+    @Override
+    public NovaAddresses getNovaAddresses(String serverId) {
+        checkNotNull(serverId);
+        return get(NovaAddresses.class, uri("/servers/%s/ips", serverId)).execute();
     }
 }

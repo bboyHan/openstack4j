@@ -2,6 +2,7 @@ package org.openstack4j.openstack.networking.internal;
 
 import org.openstack4j.api.networking.SecurityGroupRuleService;
 import org.openstack4j.model.network.SecurityGroupRule;
+import org.openstack4j.model.network.options.SecurityGroupOptions;
 import org.openstack4j.openstack.networking.domain.NeutronSecurityGroupRule;
 import org.openstack4j.openstack.networking.domain.NeutronSecurityGroupRule.SecurityGroupRules;
 
@@ -64,5 +65,14 @@ public class SecurityGroupRuleServiceImpl extends BaseNetworkingServices impleme
     @Override
     public List<? extends SecurityGroupRule> list() {
         return get(SecurityGroupRules.class, uri("/security-group-rules")).execute().getList();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public List<? extends SecurityGroupRule> list(SecurityGroupOptions options) {
+        if (options == null) return list();
+        return get(SecurityGroupRules.class, uri("/security-group-rules")).paramLists(options.getOptions()).execute().getList();
     }
 }

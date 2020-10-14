@@ -26,7 +26,7 @@ public class BaseOpenStackService {
     ServiceType serviceType = ServiceType.IDENTITY;
     Function<String, String> endpointFunc;
 
-    private static ThreadLocal<String> reqIdContainer = new ThreadLocal<String>();
+    private static ThreadLocal<String> reqIdContainer = new ThreadLocal<>();
 
     public String getXOpenstackRequestId() {
         return reqIdContainer.get();

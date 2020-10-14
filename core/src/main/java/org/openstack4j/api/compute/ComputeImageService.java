@@ -3,6 +3,7 @@ package org.openstack4j.api.compute;
 import org.openstack4j.common.RestService;
 import org.openstack4j.model.common.ActionResponse;
 import org.openstack4j.model.compute.Image;
+import org.openstack4j.model.compute.options.ImageListOptions;
 
 import java.util.List;
 import java.util.Map;
@@ -11,6 +12,7 @@ import java.util.Map;
  * Provides access to Compute Images
  *
  * @author Jeremy Unruh
+ * @author bboyHan
  */
 public interface ComputeImageService extends RestService {
 
@@ -30,6 +32,8 @@ public interface ComputeImageService extends RestService {
      * {@link Image#getLinks()} will be populated.  True will populate all fields
      */
     List<? extends Image> list(boolean detailed);
+
+    List<? extends Image> list(ImageListOptions options);
 
     /**
      * Finds an Image by the given {@code imageId}.

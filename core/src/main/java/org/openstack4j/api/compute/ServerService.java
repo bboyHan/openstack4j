@@ -11,6 +11,8 @@ import org.openstack4j.model.compute.actions.EvacuateOptions;
 import org.openstack4j.model.compute.actions.LiveMigrateOptions;
 import org.openstack4j.model.compute.actions.RebuildOptions;
 import org.openstack4j.model.compute.builder.ServerCreateBuilder;
+import org.openstack4j.model.compute.options.ServerListOptions;
+import org.openstack4j.openstack.compute.domain.NovaAddresses;
 
 import java.util.List;
 import java.util.Map;
@@ -45,6 +47,10 @@ public interface ServerService {
      * @return
      */
     List<? extends Server> list(Map<String, String> filteringParams);
+
+    List<? extends Server> list(ServerListOptions options);
+
+    List<? extends Server> list(ServerListOptions options, NovaApiVersionType novaApiVersion);
 
     /**
      * List all servers for all tenants (detailed / brief)
@@ -357,4 +363,6 @@ public interface ServerService {
      * @return an administrative password to access the evacuated or rebuilt instance.
      */
     ServerPassword evacuate(String serverId, EvacuateOptions options);
+
+    NovaAddresses getNovaAddresses(String serverId);
 }
