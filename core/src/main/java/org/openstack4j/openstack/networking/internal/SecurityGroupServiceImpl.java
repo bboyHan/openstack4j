@@ -119,4 +119,13 @@ public class SecurityGroupServiceImpl extends BaseNetworkingServices implements 
         checkNotNull(tag);
         return deleteWithResponse(uri("/security-groups/%s/tags/%s", securityGroupId, tag)).execute();
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public ActionResponse deleteAllTags(String securityGroupId) {
+        checkNotNull(securityGroupId);
+        return deleteWithResponse(uri("/security-groups/%s/tags", securityGroupId)).execute();
+    }
 }

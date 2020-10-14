@@ -74,10 +74,6 @@ public interface SecurityGroupService extends RestService {
     /**
      * Add tag to security group.
      * Can also be done with SecurityGroupService#update(security group)
-     *
-     * @param securityGroupId
-     * @param tag
-     * @return
      */
     ActionResponse updateTag(String securityGroupId, String tag);
 
@@ -85,9 +81,8 @@ public interface SecurityGroupService extends RestService {
      * Delete tag from security group.
      * Can also be done with SecurityGroupService#update(security group)
      *
-     * @param securityGroupId
-     * @param tag
-     * @return
      */
     ActionResponse deleteTag(String securityGroupId, String tag);
+
+    ActionResponse deleteAllTags(String securityGroupId);
 }
