@@ -1,5 +1,7 @@
 package org.openstack4j.model.network.options;
 
+import org.openstack4j.model.network.NetworkType;
+
 /**
  * @author bboyHan
  */
@@ -20,8 +22,8 @@ public class NetworkListOptions extends BaseListOptions<NetworkListOptions> {
         return add("tenant_id", tenantId);
     }
 
-    public NetworkListOptions networkType(String networkType) {
-        return add("provider:network_type", networkType);
+    public NetworkListOptions networkType(NetworkType networkType) {
+        return add("provider:network_type", networkType.getNetworkType());
     }
 
     public NetworkListOptions description(String description) {

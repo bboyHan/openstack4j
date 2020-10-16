@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * @author bboyHan
+ *
  * {@inheritDoc}
  */
 @JsonRootName("port_chain")
@@ -191,6 +193,22 @@ public class NeutronPortChain implements PortChain {
         @Override
         public PortChainBuilder chainParameters(Map<String, String> chainParameters) {
             this.neutronPortChain.chainParameters = chainParameters;
+            return this;
+        }
+
+        /**
+         * @param correlation default value: Multi-Protocol Label Switching
+         */
+        public PortChainBuilder correlation(String correlation) {
+            this.neutronPortChain.chainParameters.put("correlation", correlation);
+            return this;
+        }
+
+        /**
+         * @param symmetric default value: false | true -> two-way ack
+         */
+        public PortChainBuilder symmetric(boolean symmetric) {
+            this.neutronPortChain.chainParameters.put("symmetric", String.valueOf(symmetric));
             return this;
         }
 

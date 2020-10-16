@@ -10,6 +10,7 @@ import java.util.List;
  * Port Chain Service
  *
  * @author Dmitry Gerenrot
+ * @author bboyHan
  */
 public interface PortChainService extends RestService {
 
@@ -53,4 +54,9 @@ public interface PortChainService extends RestService {
      * @return the action response
      */
     ActionResponse delete(String portChainId);
+
+    /**
+     * Clear sfc resources
+     */
+    ActionResponse clear(String portChainId);
 }

@@ -32,4 +32,9 @@ public enum NetworkType {
         return name().toLowerCase();
     }
 
+    @JsonValue
+    public String getNetworkType() {
+        return name().toLowerCase();
+    }
+
 }
