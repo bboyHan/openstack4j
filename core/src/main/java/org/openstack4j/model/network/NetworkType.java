@@ -28,11 +28,6 @@ public enum NetworkType {
     }
 
     @JsonValue
-    public String toJson() {
-        return name().toLowerCase();
-    }
-
-    @JsonValue
     public String getNetworkType() {
         return name().toLowerCase();
     }

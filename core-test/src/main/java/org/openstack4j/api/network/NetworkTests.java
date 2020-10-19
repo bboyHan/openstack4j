@@ -42,7 +42,7 @@ public class NetworkTests extends AbstractTest {
         server.takeRequest();
         assertEquals(n.getName(), NETWORK_NAME);
         assertEquals(n.getStatus(), State.ACTIVE);
-        assertEquals(n.isRouterExternal(), false);
+        assertFalse(n.isRouterExternal());
     }
 
     @Test

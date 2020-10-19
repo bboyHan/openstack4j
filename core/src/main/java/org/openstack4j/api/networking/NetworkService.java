@@ -6,9 +6,6 @@ import org.openstack4j.model.common.ActionResponse;
 import org.openstack4j.model.network.Network;
 import org.openstack4j.model.network.NetworkUpdate;
 import org.openstack4j.model.network.options.NetworkListOptions;
-import org.openstack4j.openstack.common.ListResult;
-import org.openstack4j.openstack.networking.domain.NeutronNetwork;
-import org.openstack4j.openstack.networking.domain.NeutronNetwork.Networks;
 
 import java.util.List;
 import java.util.Map;

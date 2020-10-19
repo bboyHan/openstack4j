@@ -257,7 +257,7 @@ public class NeutronNetwork extends TimeEntity implements Network {
 
         if (obj instanceof NeutronNetwork) {
             NeutronNetwork that = (NeutronNetwork) obj;
-            if (java.util.Objects.equals(name, that.name) &&
+            return java.util.Objects.equals(name, that.name) &&
                     java.util.Objects.equals(status, that.status) &&
                     java.util.Objects.equals(subnets, that.subnets) &&
                     java.util.Objects.equals(providerPhyNet, that.providerPhyNet) &&
@@ -269,9 +269,7 @@ public class NeutronNetwork extends TimeEntity implements Network {
                     java.util.Objects.equals(shared, that.shared) &&
                     java.util.Objects.equals(providerSegID, that.providerSegID) &&
                     java.util.Objects.equals(availabilityZoneHints, that.availabilityZoneHints) &&
-                    java.util.Objects.equals(availabilityZones, that.availabilityZones)) {
-                return true;
-            }
+                    java.util.Objects.equals(availabilityZones, that.availabilityZones);
         }
         return false;
     }
