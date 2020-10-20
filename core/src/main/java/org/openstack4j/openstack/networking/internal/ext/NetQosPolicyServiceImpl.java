@@ -27,7 +27,7 @@ public class NetQosPolicyServiceImpl extends BaseNetworkingServices implements N
     @Override
     public NetQosPolicy get(String policyId) {
         checkNotNull(policyId, "qos policyId must not be null");
-        return get(NeutronNetQosPolicy.class, uri("/qos/policies", policyId)).execute();
+        return get(NeutronNetQosPolicy.class, uri("/qos/policies/%s", policyId)).execute();
     }
 
     @Override

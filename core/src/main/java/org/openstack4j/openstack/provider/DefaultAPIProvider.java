@@ -284,6 +284,8 @@ public class DefaultAPIProvider implements APIProvider {
         bind(WorkflowEnvironmentService.class, WorkflowEnvironmentServiceImpl.class);
         bind(CronTriggerService.class, CronTriggerServiceImpl.class);
         bind(NetIpAvailabilitiesService.class, NetIpAvailabilitiesServiceImpl.class);
+        bind(NetQosPolicyBLRuleService.class, NetQosPolicyBLRuleServiceImpl.class);
+        bind(NetQosPolicyService.class, NetQosPolicyServiceImpl.class);
     }
 
     /**
