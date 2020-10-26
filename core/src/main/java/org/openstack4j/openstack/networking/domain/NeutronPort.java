@@ -507,6 +507,17 @@ public class NeutronPort extends TimeEntity implements Port {
             return this;
         }
 
+        @Override
+        public PortBuilder updateTime(String updateTime) {
+            m.updatedTime = updateTime;
+            return this;
+        }
+
+        @Override
+        public PortBuilder createTime(String createTime) {
+            m.createdTime = createTime;
+            return this;
+        }
     }
 
 }

@@ -118,5 +118,7 @@ public interface PortBuilder extends Builder<PortBuilder, Port> {
 
     PortBuilder profile(Map<String, Object> profile);
 
+    PortBuilder updateTime(String updateTime);
 
+    PortBuilder createTime(String createTime);
 }
