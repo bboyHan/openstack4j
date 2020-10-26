@@ -63,6 +63,8 @@ public class NeutronPort extends TimeEntity implements Port {
     private String vNicType;
     @JsonProperty("binding:profile")
     private Map<String, Object> profile;
+    @JsonProperty("qos_policy_id")
+    private String qosPolicyId;
 
     public static PortBuilder builder() {
         return new PortConcreteBuilder();
@@ -322,6 +324,14 @@ public class NeutronPort extends TimeEntity implements Port {
         return false;
     }
 
+    public String getQosPolicyId() {
+        return qosPolicyId;
+    }
+
+    public void setQosPolicyId(String qosPolicyId) {
+        this.qosPolicyId = qosPolicyId;
+    }
+
     public static class Ports extends ListResult<NeutronPort> {
 
         private static final long serialVersionUID = 1L;
@@ -516,6 +526,12 @@ public class NeutronPort extends TimeEntity implements Port {
         @Override
         public PortBuilder createTime(String createTime) {
             m.createdTime = createTime;
+            return this;
+        }
+
+        @Override
+        public PortBuilder qosPolicyId(String qosPolicyId) {
+            m.qosPolicyId = qosPolicyId;
             return this;
         }
     }

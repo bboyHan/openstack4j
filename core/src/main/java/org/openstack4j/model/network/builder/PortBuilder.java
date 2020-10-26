@@ -121,4 +121,6 @@ public interface PortBuilder extends Builder<PortBuilder, Port> {
     PortBuilder updateTime(String updateTime);
 
     PortBuilder createTime(String createTime);
+
+    PortBuilder qosPolicyId(String qosPolicyId);
 }
