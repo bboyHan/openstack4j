@@ -33,6 +33,7 @@ public class ServerListOptions extends BaseListOptions<ServerListOptions> {
         return add("tags", tags);
     }
 
+    public ServerListOptions tagsAny(String tags) { return add("tags-any",tags); }
     /**
      * This parameter is only valid when specified by administrators
      *
