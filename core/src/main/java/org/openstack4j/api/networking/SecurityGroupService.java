@@ -77,7 +77,7 @@ public interface SecurityGroupService extends RestService {
      */
     ActionResponse updateTag(String securityGroupId, String tag);
 
-    ActionResponse resetTags(String securityGroupId, NeutronSecurityGroupTag tags);
+    NeutronSecurityGroupTag resetTags(String securityGroupId, NeutronSecurityGroupTag tags);
 
     /**
      * Delete tag from security group.

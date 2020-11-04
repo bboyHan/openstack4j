@@ -114,10 +114,10 @@ public class SecurityGroupServiceImpl extends BaseNetworkingServices implements 
      * {@inheritDoc}
      */
     @Override
-    public ActionResponse resetTags(String securityGroupId, NeutronSecurityGroupTag tags) {
+    public NeutronSecurityGroupTag resetTags(String securityGroupId, NeutronSecurityGroupTag tags) {
         checkNotNull(securityGroupId);
         checkNotNull(tags);
-        return put(ActionResponse.class, uri("/security-groups/%s/tags", securityGroupId)).entity(tags).execute();
+        return put(NeutronSecurityGroupTag.class, uri("/security-groups/%s/tags", securityGroupId)).entity(tags).execute();
     }
 
     /**
