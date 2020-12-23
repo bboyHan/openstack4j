@@ -53,18 +53,22 @@ public class PortChainServiceImpl extends BaseNetworkingServices implements Port
         checkNotNull(portChainId);
         PortChain portChain = get(portChainId);
         checkNotNull(portChain, "not found the port chain");
-        ActionResponse actionResponse = delete(portChain.getChainId());
+        ActionResponse actionResponse = delete(portChain.getId());
+        if (!actionResponse.isSuccess()) LOG.error("port chain del failed.");
         List<String> flowClassifiers = portChain.getFlowClassifiers();
         for (String flowClassifier : flowClassifiers) {
-            Apis.getSfcServices().flowclassifiers().delete(flowClassifier);
+            actionResponse = Apis.getSfcServices().flowclassifiers().delete(flowClassifier);
+            if (!actionResponse.isSuccess()) LOG.error("flow classifier del failed.");
         }
         List<String> portPairGroups = portChain.getPortPairGroups();
         for (String portPairGroup : portPairGroups) {
             PortPairGroup ppg = Apis.getSfcServices().portpairgroups().get(portPairGroup);
             List<String> portPairs = ppg.getPortPairs();
-            Apis.getSfcServices().portpairgroups().delete(portPairGroup);
+            actionResponse = Apis.getSfcServices().portpairgroups().delete(portPairGroup);
+            if (!actionResponse.isSuccess()) LOG.error("port pair group del failed.");
             for (String portPair : portPairs) {
-                Apis.getSfcServices().portpairs().delete(portPair);
+                actionResponse = Apis.getSfcServices().portpairs().delete(portPair);
+                if (!actionResponse.isSuccess()) LOG.error("port pair del failed.");
             }
         }
         LOG.warn("sfc resources have been cleaned up, port chain info : {}", portChain);

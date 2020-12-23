@@ -3,6 +3,7 @@ package org.openstack4j.openstack.networking.domain.ext;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
+import com.google.common.base.MoreObjects;
 import org.openstack4j.model.network.ext.PortPair;
 import org.openstack4j.model.network.ext.builder.PortPairBuilder;
 import org.openstack4j.openstack.common.ListResult;
@@ -107,6 +108,13 @@ public class NeutronPortPair implements PortPair {
         this.serviceFunctionParameters = serviceFunctionParameters;
     }
 
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this).omitNullValues()
+                .add("id", id).add("name", name).add("projectId", projectId).add("description", description)
+                .add("egressId", egressId).add("ingressId", ingressId).add("serviceFunctionParameters", serviceFunctionParameters)
+                .toString();
+    }
 
     @Override
     public PortPairBuilder toBuilder() {

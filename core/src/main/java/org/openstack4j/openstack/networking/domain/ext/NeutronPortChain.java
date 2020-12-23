@@ -3,6 +3,7 @@ package org.openstack4j.openstack.networking.domain.ext;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
+import com.google.common.base.MoreObjects;
 import org.openstack4j.model.network.ext.PortChain;
 import org.openstack4j.model.network.ext.builder.PortChainBuilder;
 import org.openstack4j.openstack.common.ListResult;
@@ -114,6 +115,14 @@ public class NeutronPortChain implements PortChain {
 
     public void setChainParameters(Map<String, String> chainParameters) {
         this.chainParameters = chainParameters;
+    }
+
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this).omitNullValues()
+                .add("id", id).add("chainId", chainId).add("projectId", projectId).add("description", description)
+                .add("name", name).add("flowClassifiers", flowClassifiers).add("portPairGroups", portPairGroups)
+                .add("chainParameters", chainParameters).toString();
     }
 
     @Override

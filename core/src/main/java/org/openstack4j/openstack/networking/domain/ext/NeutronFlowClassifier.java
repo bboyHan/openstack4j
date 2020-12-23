@@ -3,6 +3,7 @@ package org.openstack4j.openstack.networking.domain.ext;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
+import com.google.common.base.MoreObjects;
 import org.openstack4j.model.network.ext.Ethertype;
 import org.openstack4j.model.network.ext.FlowClassifier;
 import org.openstack4j.model.network.ext.builder.FlowClassifierBuilder;
@@ -152,6 +153,19 @@ public class NeutronFlowClassifier implements FlowClassifier {
     @Override
     public Ethertype getEthertype() {
         return ethertype;
+    }
+
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this).omitNullValues()
+                .add("id", id).add("name", name).add("projectId", projectId).add("description", description)
+                .add("protocol", protocol).add("sourcePortRangeMin", sourcePortRangeMin)
+                .add("sourcePortRangeMax", sourcePortRangeMax).add("destinationPortRangeMin", destinationPortRangeMin)
+                .add("destinationPortRangeMax", destinationPortRangeMax).add("sourceIpPrefix", sourceIpPrefix)
+                .add("destinationIpPrefix", destinationIpPrefix).add("logicalSourcePort", logicalSourcePort)
+                .add("logicalDestinationPort", logicalDestinationPort).add("l7Parameters", l7Parameters)
+                .add("ethertype", ethertype)
+                .toString();
     }
 
     public FlowClassifierBuilder toBuilder() {

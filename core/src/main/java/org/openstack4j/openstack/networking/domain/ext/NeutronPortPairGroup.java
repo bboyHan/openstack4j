@@ -3,6 +3,7 @@ package org.openstack4j.openstack.networking.domain.ext;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
+import com.google.common.base.MoreObjects;
 import org.openstack4j.model.network.ext.PortPairGroup;
 import org.openstack4j.model.network.ext.builder.PortPairGroupBuilder;
 import org.openstack4j.openstack.common.ListResult;
@@ -92,6 +93,14 @@ public class NeutronPortPairGroup implements PortPairGroup {
 
     public void setPortPairGroupParameters(Map<String, Object> portPairGroupParameters) {
         this.portPairGroupParameters = portPairGroupParameters;
+    }
+
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this).omitNullValues()
+                .add("id", id).add("name", name).add("projectId", projectId).add("description", description)
+                .add("portPairs", portPairs).add("portPairGroupParameters", portPairGroupParameters)
+                .toString();
     }
 
     @Override
