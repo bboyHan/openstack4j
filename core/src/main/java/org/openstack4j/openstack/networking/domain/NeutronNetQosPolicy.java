@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 import org.openstack4j.model.network.NetQosPolicy;
 import org.openstack4j.model.network.builder.NetQosPolicyBuilder;
 import org.openstack4j.openstack.common.ListResult;
+import org.openstack4j.openstack.common.TimeEntity;
 
 import java.util.List;
 import java.util.Map;
@@ -17,7 +18,7 @@ import static com.google.common.base.MoreObjects.toStringHelper;
  * @author bboyHan
  */
 @JsonRootName("policy")
-public class NeutronNetQosPolicy implements NetQosPolicy {
+public class NeutronNetQosPolicy extends TimeEntity implements NetQosPolicy {
 
     private static final long serialVersionUID = 1L;
 
@@ -30,16 +31,16 @@ public class NeutronNetQosPolicy implements NetQosPolicy {
     @JsonProperty("revision_number")
     private String revisionNumber;
     @JsonProperty
-    private boolean shared;
+    private Boolean shared;
     @JsonProperty
     private String id;
     @JsonProperty("is_default")
-    private boolean isDefault;
+    private Boolean isDefault;
     @JsonProperty
     private List<Map<String, String>> rules;
     private String name;
     @JsonProperty
-    private NeutronNetQosPolicyTag tags;
+    private List<String> tags;
 
     public static NetQosPolicyBuilder builder() {
         return new NetQosPolicyConcreteBuilder();
@@ -69,20 +70,26 @@ public class NeutronNetQosPolicy implements NetQosPolicy {
     }
 
     @Override
-    public boolean isShared() {
+    public Boolean isShared() {
         return shared;
     }
 
+    @Override
     public String getId() {
         return id;
     }
 
     @Override
-    public boolean isDefault() {
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    @Override
+    public Boolean isDefault() {
         return isDefault;
     }
 
-    public List getRules() {
+    public List<Map<String, String>> getRules() {
         return rules;
     }
 
@@ -91,7 +98,7 @@ public class NeutronNetQosPolicy implements NetQosPolicy {
         return name;
     }
 
-    public NeutronNetQosPolicyTag getTags() {
+    public List<String> getTags() {
         return tags;
     }
 
@@ -140,13 +147,13 @@ public class NeutronNetQosPolicy implements NetQosPolicy {
         }
 
         @Override
-        public NetQosPolicyBuilder shared(boolean shared) {
+        public NetQosPolicyBuilder shared(Boolean shared) {
             model.shared = shared;
             return this;
         }
 
         @Override
-        public NetQosPolicyBuilder isDefault(boolean isDefault) {
+        public NetQosPolicyBuilder isDefault(Boolean isDefault) {
             model.isDefault = isDefault;
             return this;
         }

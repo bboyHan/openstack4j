@@ -3,6 +3,7 @@ package org.openstack4j.openstack.networking.internal.ext;
 import org.openstack4j.api.networking.ext.NetQosPolicyBLRuleService;
 import org.openstack4j.model.common.ActionResponse;
 import org.openstack4j.model.network.NetQosPolicyBandwidthLimitRule;
+import org.openstack4j.openstack.networking.domain.NeutronNetQosPolicyBandwidthLimitRule;
 import org.openstack4j.openstack.networking.domain.NeutronNetQosPolicyBandwidthLimitRule.NeutronNetQosPolicyBLRules;
 import org.openstack4j.openstack.networking.internal.BaseNetworkingServices;
 
@@ -27,7 +28,7 @@ public class NetQosPolicyBLRuleServiceImpl extends BaseNetworkingServices implem
     public NetQosPolicyBandwidthLimitRule get(String policyId, String ruleId) {
         checkNotNull(policyId, "qos policyId must not be null");
         checkNotNull(ruleId, "qos ruleId must not be null");
-        return get(NetQosPolicyBandwidthLimitRule.class, uri("/qos/policies/%s/bandwidth_limit_rules/%s", policyId, ruleId)).execute();
+        return get(NeutronNetQosPolicyBandwidthLimitRule.class, uri("/qos/policies/%s/bandwidth_limit_rules/%s", policyId, ruleId)).execute();
     }
 
     @Override
@@ -35,7 +36,7 @@ public class NetQosPolicyBLRuleServiceImpl extends BaseNetworkingServices implem
         checkNotNull(policyId, "qos policyId must not be null");
         checkNotNull(bandwidthLimitRule);
         checkNotNull(bandwidthLimitRule.getId(), "netQosPolicy rule id must not be null");
-        return put(NetQosPolicyBandwidthLimitRule.class, uri("/qos/policies/%s/bandwidth_limit_rules/%s",
+        return put(NeutronNetQosPolicyBandwidthLimitRule.class, uri("/qos/policies/%s/bandwidth_limit_rules/%s",
                 policyId, getAndClearIdentifier(bandwidthLimitRule)))
                 .entity(bandwidthLimitRule).execute();
     }
@@ -44,7 +45,7 @@ public class NetQosPolicyBLRuleServiceImpl extends BaseNetworkingServices implem
     public NetQosPolicyBandwidthLimitRule create(String policyId, NetQosPolicyBandwidthLimitRule bandwidthLimitRule) {
         checkNotNull(policyId, "qos policyId must not be null");
         checkNotNull(bandwidthLimitRule, "netQosPolicy ruleId must not be null");
-        return post(NetQosPolicyBandwidthLimitRule.class, uri("/qos/policies/%s/bandwidth_limit_rules", policyId)).entity(bandwidthLimitRule).execute();
+        return post(NeutronNetQosPolicyBandwidthLimitRule.class, uri("/qos/policies/%s/bandwidth_limit_rules", policyId)).entity(bandwidthLimitRule).execute();
     }
 
     /**

@@ -1,7 +1,7 @@
 package org.openstack4j.model.network;
 
 import org.openstack4j.common.Buildable;
-import org.openstack4j.model.ModelEntity;
+import org.openstack4j.model.common.IdEntity;
 import org.openstack4j.model.network.builder.NetQosPolicyBuilder;
 
 /**
@@ -9,7 +9,7 @@ import org.openstack4j.model.network.builder.NetQosPolicyBuilder;
  *
  * @author bboyHan
  */
-public interface NetQosPolicy extends ModelEntity, Buildable<NetQosPolicyBuilder> {
+public interface NetQosPolicy extends IdEntity, Buildable<NetQosPolicyBuilder> {
 
     /**
      * A human-readable description for the resource. Default is an empty string.
@@ -32,14 +32,14 @@ public interface NetQosPolicy extends ModelEntity, Buildable<NetQosPolicyBuilder
      *
      * @return true or false
      */
-    boolean isShared();
+    Boolean isShared();
 
     /**
      * if True, the QoS policy is the default policy.
      *
      * @return true or false
      */
-    boolean isDefault();
+    Boolean isDefault();
 
     /**
      * human-readable name

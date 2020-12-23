@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 import org.openstack4j.model.network.NetQosPolicyBandwidthLimitRule;
 import org.openstack4j.model.network.builder.NetQosPolicyBandwidthLimitRuleBuilder;
 import org.openstack4j.openstack.common.ListResult;
+import org.openstack4j.openstack.common.TimeEntity;
 
 import java.util.List;
 
@@ -29,7 +30,7 @@ public class NeutronNetQosPolicyBandwidthLimitRule implements NetQosPolicyBandwi
     @JsonProperty
     private String direction;
     @JsonProperty
-    private NeutronNetQosPolicyRuleTag tags;
+    private List<String> tags;
 
     public static NetQosPolicyBandwidthLimitRuleBuilder builder() {
         return new NetQosPolicyBandwidthLimitRuleConcreteBuilder();
@@ -61,7 +62,7 @@ public class NeutronNetQosPolicyBandwidthLimitRule implements NetQosPolicyBandwi
         return direction;
     }
 
-    public NeutronNetQosPolicyRuleTag getTags() {
+    public List<String> getTags() {
         return tags;
     }
 

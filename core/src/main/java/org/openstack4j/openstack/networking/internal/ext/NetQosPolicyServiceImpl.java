@@ -4,6 +4,7 @@ import org.openstack4j.api.networking.ext.NetQosPolicyService;
 import org.openstack4j.model.common.ActionResponse;
 import org.openstack4j.model.network.NetQosPolicy;
 import org.openstack4j.model.network.NetQosPolicyUpdate;
+import org.openstack4j.model.network.options.QosPolicyOptions;
 import org.openstack4j.openstack.networking.domain.NeutronNetQosPolicy;
 import org.openstack4j.openstack.networking.domain.NeutronNetQosPolicy.NeutronNetQosPolicies;
 import org.openstack4j.openstack.networking.internal.BaseNetworkingServices;
@@ -22,6 +23,12 @@ public class NetQosPolicyServiceImpl extends BaseNetworkingServices implements N
     @Override
     public List<? extends NetQosPolicy> list() {
         return get(NeutronNetQosPolicies.class, uri("/qos/policies")).execute().getList();
+    }
+
+    @Override
+    public List<? extends NetQosPolicy> list(QosPolicyOptions options) {
+        if (null == options) return list();
+        return get(NeutronNetQosPolicies.class, uri("/qos/policies")).paramLists(options.getOptions()).execute().getList();
     }
 
     @Override

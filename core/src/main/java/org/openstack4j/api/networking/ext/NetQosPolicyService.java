@@ -4,6 +4,7 @@ import org.openstack4j.common.RestService;
 import org.openstack4j.model.common.ActionResponse;
 import org.openstack4j.model.network.NetQosPolicy;
 import org.openstack4j.model.network.NetQosPolicyUpdate;
+import org.openstack4j.model.network.options.QosPolicyOptions;
 
 import java.util.List;
 
@@ -20,6 +21,8 @@ public interface NetQosPolicyService extends RestService {
      * @return the list of qos policy
      */
     List<? extends NetQosPolicy> list();
+
+    List<? extends NetQosPolicy> list(QosPolicyOptions options);
 
     /**
      * Fetches the network qos policy for the specified tenant

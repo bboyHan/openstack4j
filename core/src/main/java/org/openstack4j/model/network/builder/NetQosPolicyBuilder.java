@@ -32,7 +32,7 @@ public interface NetQosPolicyBuilder extends Builder<NetQosPolicyBuilder, NetQos
      * @param shared true or false
      * @return NetQosPolicyBuilder
      */
-    NetQosPolicyBuilder shared(boolean shared);
+    NetQosPolicyBuilder shared(Boolean shared);
 
     /**
      * See {@link NetQosPolicy#isDefault()} for details
@@ -40,7 +40,7 @@ public interface NetQosPolicyBuilder extends Builder<NetQosPolicyBuilder, NetQos
      * @param isDefault if True, the QoS policy is the default policy.
      * @return NetQosPolicyBuilder
      */
-    NetQosPolicyBuilder isDefault(boolean isDefault);
+    NetQosPolicyBuilder isDefault(Boolean isDefault);
 
     /**
      * See {@link NetQosPolicy#getName()} for details
