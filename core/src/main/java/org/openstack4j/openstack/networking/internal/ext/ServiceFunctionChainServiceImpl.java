@@ -40,4 +40,28 @@ public class ServiceFunctionChainServiceImpl extends BaseNetworkingServices impl
     public PortChainService portchains() {
         return Apis.get(PortChainService.class);
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public PbrPolicyService pbrPolicy() {
+        return Apis.get(PbrPolicyService.class);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public PbrRuleService pbrRule() {
+        return Apis.get(PbrRuleService.class);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public RpFilterService rpFilter() {
+        return Apis.get(RpFilterService.class);
+    }
 }

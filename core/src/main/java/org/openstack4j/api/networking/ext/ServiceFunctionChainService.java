@@ -28,4 +28,10 @@ public interface ServiceFunctionChainService extends RestService {
      * @return the Port Chain Service API
      */
     PortChainService portchains();
+
+    PbrPolicyService pbrPolicy();
+
+    PbrRuleService pbrRule();
+
+    RpFilterService rpFilter();
 }

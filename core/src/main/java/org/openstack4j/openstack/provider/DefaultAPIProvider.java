@@ -286,6 +286,9 @@ public class DefaultAPIProvider implements APIProvider {
         bind(NetIpAvailabilitiesService.class, NetIpAvailabilitiesServiceImpl.class);
         bind(NetQosPolicyBLRuleService.class, NetQosPolicyBLRuleServiceImpl.class);
         bind(NetQosPolicyService.class, NetQosPolicyServiceImpl.class);
+        bind(PbrPolicyService.class, PbrPolicyServiceImpl.class);
+        bind(PbrRuleService.class, PbrRuleServiceImpl.class);
+        bind(RpFilterService.class, RpFilterServiceImpl.class);
     }
 
     /**
