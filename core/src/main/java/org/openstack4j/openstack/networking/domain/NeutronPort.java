@@ -1,6 +1,7 @@
 package org.openstack4j.openstack.networking.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import com.google.common.base.MoreObjects;
@@ -64,6 +65,7 @@ public class NeutronPort extends TimeEntity implements Port {
     @JsonProperty("binding:profile")
     private Map<String, Object> profile;
     @JsonProperty("qos_policy_id")
+    @JsonInclude
     private String qosPolicyId;
 
     public static PortBuilder builder() {

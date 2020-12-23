@@ -121,4 +121,14 @@ public class NetworkingServiceImpl implements NetworkingService {
         return Apis.get(NetIpAvailabilitiesService.class);
     }
 
+    @Override
+    public NetQosPolicyService qosPolicy() {
+        return Apis.get(NetQosPolicyService.class);
+    }
+
+    @Override
+    public NetQosPolicyBLRuleService qosPolicyBLRule() {
+        return Apis.get(NetQosPolicyBLRuleService.class);
+    }
+
 }

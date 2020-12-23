@@ -8,8 +8,16 @@ public class SubnetListOptions extends BaseListOptions<SubnetListOptions> {
     private SubnetListOptions() {
     }
 
+    public SubnetListOptions id(String id) {
+        return add("id", id);
+    }
+
     public SubnetListOptions name(String name) {
         return add("name", name);
+    }
+
+    public SubnetListOptions networkId(String networkId) {
+        return add("network_id", networkId);
     }
 
     public SubnetListOptions projectId(String projectId) {

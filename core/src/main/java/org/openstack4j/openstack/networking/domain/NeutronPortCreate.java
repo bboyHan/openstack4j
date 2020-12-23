@@ -67,6 +67,8 @@ public class NeutronPortCreate implements ModelEntity {
     @JsonProperty("binding:profile")
     private Map<String, Object> profile;
 
+    @JsonProperty("allowed_address_pairs")
+    private Set<NeutronAllowedAddressPair> allowedAddressPairs;
 
     public NeutronPortCreate() {
     }
@@ -95,6 +97,7 @@ public class NeutronPortCreate implements ModelEntity {
         c.vifDetails = port.getVifDetails();
         c.vNicType = port.getvNicType();
         c.profile = port.getProfile();
+        c.allowedAddressPairs = (Set<NeutronAllowedAddressPair>) port.getAllowedAddressPairs();
 
         return c;
     }

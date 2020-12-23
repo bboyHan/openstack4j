@@ -79,4 +79,8 @@ public interface NetworkingService extends RestService {
     AvailabilityZoneService availabilityzone();
 
     NetIpAvailabilitiesService netIpAvailabilities();
+
+    NetQosPolicyService qosPolicy();
+
+    NetQosPolicyBLRuleService qosPolicyBLRule();
 }

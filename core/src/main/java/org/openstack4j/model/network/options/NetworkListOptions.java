@@ -44,6 +44,10 @@ public class NetworkListOptions extends BaseListOptions<NetworkListOptions> {
         return add("status", status);
     }
 
+    public NetworkListOptions routerExternal(boolean routerExternal) {
+        return add("router:external", routerExternal);
+    }
+
     public static NetworkListOptions create() {
         return new NetworkListOptions();
     }
