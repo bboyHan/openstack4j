@@ -32,6 +32,9 @@ public class SgBindingServiceImpl extends BaseNetworkingServices implements SgBi
      */
     @Override
     public List<? extends SgBinding> list(SgBindingOptions options) {
+        if (options == null) {
+            return list();
+        }
         return get(SgBindings.class, uri("/sg_bindings")).paramLists(options.getOptions()).execute().getList();
     }
 

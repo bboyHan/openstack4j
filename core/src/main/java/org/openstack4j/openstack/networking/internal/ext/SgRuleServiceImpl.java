@@ -32,6 +32,9 @@ public class SgRuleServiceImpl extends BaseNetworkingServices implements SgRuleS
      */
     @Override
     public List<? extends SgRule> list(SgRuleOptions options) {
+        if (options == null) {
+            return list();
+        }
         return get(SgRules.class, uri("/sg_rules")).paramLists(options.getOptions()).execute().getList();
     }
 
