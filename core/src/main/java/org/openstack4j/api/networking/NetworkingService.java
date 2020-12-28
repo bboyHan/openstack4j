@@ -83,4 +83,8 @@ public interface NetworkingService extends RestService {
     NetQosPolicyService qosPolicy();
 
     NetQosPolicyBLRuleService qosPolicyBLRule();
+
+    SgBindingService sgBinding();
+
+    SgRuleService sgRule();
 }

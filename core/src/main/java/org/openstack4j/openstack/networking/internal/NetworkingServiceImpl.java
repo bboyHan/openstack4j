@@ -131,4 +131,14 @@ public class NetworkingServiceImpl implements NetworkingService {
         return Apis.get(NetQosPolicyBLRuleService.class);
     }
 
+    @Override
+    public SgBindingService sgBinding() {
+        return Apis.get(SgBindingService.class);
+    }
+
+    @Override
+    public SgRuleService sgRule() {
+        return Apis.get(SgRuleService.class);
+    }
+
 }

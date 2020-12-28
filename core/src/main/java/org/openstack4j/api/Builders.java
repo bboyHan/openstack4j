@@ -1217,4 +1217,13 @@ public class Builders {
     public static WorkflowBuilders workflow() {
         return new MistralBuilders();
     }
+
+    public static SgBindingBuilder sgBinding() {
+        return NeutronSgBinding.builder();
+    }
+
+    public static SgRuleBuilder sgRule() {
+        return NeutronSgRule.builder();
+    }
+
 }
