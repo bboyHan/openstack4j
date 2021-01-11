@@ -24,7 +24,7 @@ public class SgRuleServiceImpl extends BaseNetworkingServices implements SgRuleS
      */
     @Override
     public List<? extends SgRule> list() {
-        return get(SgRules.class, uri("/sg_rules")).execute().getList();
+        return get(SgRules.class, uri("/bmsg/sg_rules")).execute().getList();
     }
 
     /**
@@ -35,7 +35,7 @@ public class SgRuleServiceImpl extends BaseNetworkingServices implements SgRuleS
         if (options == null) {
             return list();
         }
-        return get(SgRules.class, uri("/sg_rules")).paramLists(options.getOptions()).execute().getList();
+        return get(SgRules.class, uri("/bmsg/sg_rules")).paramLists(options.getOptions()).execute().getList();
     }
 
     /**
@@ -44,7 +44,7 @@ public class SgRuleServiceImpl extends BaseNetworkingServices implements SgRuleS
     @Override
     public SgRule get(String id) {
         checkNotNull(id);
-        return get(NeutronSgRule.class, uri("/sg_rules/%s", id)).execute();
+        return get(NeutronSgRule.class, uri("/bmsg/sg_rules/%s", id)).execute();
     }
 
     /**
@@ -53,7 +53,7 @@ public class SgRuleServiceImpl extends BaseNetworkingServices implements SgRuleS
     @Override
     public SgRule create(SgRule sgRule) {
         checkNotNull(sgRule);
-        return post(NeutronSgRule.class, uri("/sg_rules")).entity(sgRule).execute();
+        return post(NeutronSgRule.class, uri("/bmsg/sg_rules")).entity(sgRule).execute();
     }
 
     /**
@@ -62,7 +62,7 @@ public class SgRuleServiceImpl extends BaseNetworkingServices implements SgRuleS
     @Override
     public ActionResponse delete(String id) {
         checkNotNull(id);
-        return deleteWithResponse(uri("/sg_rules/%s", id)).execute();
+        return deleteWithResponse(uri("/bmsg/sg_rules/%s", id)).execute();
     }
 
 }
