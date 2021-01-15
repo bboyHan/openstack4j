@@ -289,6 +289,9 @@ public class DefaultAPIProvider implements APIProvider {
         bind(PbrPolicyService.class, PbrPolicyServiceImpl.class);
         bind(PbrRuleService.class, PbrRuleServiceImpl.class);
         bind(RpFilterService.class, RpFilterServiceImpl.class);
+        bind(AclPolicyService.class, AclPolicyServiceImpl.class);
+        bind(AclRuleService.class, AclRuleServiceImpl.class);
+        bind(AclBindingService.class, AclBindingServiceImpl.class);
     }
 
     /**

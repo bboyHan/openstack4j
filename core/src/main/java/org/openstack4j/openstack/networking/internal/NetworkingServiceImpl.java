@@ -131,4 +131,19 @@ public class NetworkingServiceImpl implements NetworkingService {
         return Apis.get(NetQosPolicyBLRuleService.class);
     }
 
+    @Override
+    public AclPolicyService aclPolicy() {
+        return Apis.get(AclPolicyService.class);
+    }
+
+    @Override
+    public AclRuleService aclRule() {
+        return Apis.get(AclRuleService.class);
+    }
+
+    @Override
+    public AclBindingService aclBinding() {
+        return Apis.get(AclBindingService.class);
+    }
+
 }

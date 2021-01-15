@@ -1,0 +1,14 @@
+{
+  "acl_binding": {
+    "id": "708a1012-0bcf-43d4-a8dd-2458dde96679",
+    "tenant_id": "5cfc713e418e41469e40f5824fc1d39d",
+    "router_id": "f977f16a-a0e4-4d6e-9030-cfae7b5962cc",
+    "network_id": "1d0abad9-0b37-4280-82b6-a4e61b92c62c",
+    "subnet_id": "74841564-9f95-48d5-b83b-263cb994ec2b",
+    "admin_state_up": "1",
+    "status": "1",
+    "acl_policy_id": "7b75fa3c-26d2-4843-bb89-f5fe505fc9da",
+    "create_time": "2020-10-29 02:48:24",
+    "project_id": "5cfc713e418e41469e40f5824fc1d39d"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "acl_rules": [
+    {
+      "id": "0012b505-4853-4c40-8c65-907ff3e9bcc9",
+      "tenant_id": "c545f4c768e14290a0bb9c7ad44c1d5f",
+      "name": "test-rule",
+      "description": "",
+      "acl_policy_id": null,
+      "protocol": "tcp",
+      "ip_version": "4",
+      "source_ip_address": "4.1.1.0/24",
+      "destination_ip_address": null,
+      "source_port": "6:8",
+      "direction": "ingress",
+      "destination_port": null,
+      "action": "allow",
+      "position": null,
+      "admin_state_up": "1",
+      "status": "1",
+      "enabled": "true",
+      "create_time": "2020-06-13 09:08:10",
+      "update_time": "2020-06-13 09:08:10",
+      "project_id": "c545f4c768e14290a0bb9c7ad44c1d5f"
+    }
+  ]
+}

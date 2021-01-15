@@ -1,0 +1,23 @@
+{
+  "acl_policies": [
+    {
+      "id": "150c2398-2263-48d4-a88b-25afc9ef7b81",
+      "tenant_id": "5cfc713e418e41469e40f5824fc1d39d",
+      "name": "test-policy",
+      "description": "test-policy",
+      "admin_state_up": "1",
+      "status": "1",
+      "network_id": "cbb106d7-a436-4e8d-9a32-da0f00486fd4",
+      "create_time": "2020-11-04 08:53:07",
+      "update_time": "2020-11-04 08:53:07",
+      "acl_rules": [
+        "f31d064f-af2c-4823-a943-4b911a1cb951",
+        "46339055-e002-4fe5-8d39-94eeeeb1e7be",
+        "2baff5da-456a-437b-b85e-d1e4b86ccb2f",
+        "4b7d3af8-bafc-428d-b61e-0c1a62d273bf"
+      ],
+      "acl_binding_list": [],
+      "project_id": "5cfc713e418e41469e40f5824fc1d39d"
+    }
+  ]
+}
