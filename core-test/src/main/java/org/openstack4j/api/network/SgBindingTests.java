@@ -15,14 +15,15 @@ import static org.testng.Assert.assertTrue;
 public class SgBindingTests extends AbstractTest {
 
     private static final String SG_BINDING_ID = "4512d643-24fc-4fae-af4b-321c5e2eb3d1";
+    private static final String SG_BINDING_NAME = "sg1";
     private static final String JSON_SG_BINDING = "/network/sg_binding.json";
     private static final String JSON_SG_BINDINGS = "/network/sg_bindings.json";
 
     @Test
     public void createSgBinding() throws Exception {
         respondWith(JSON_SG_BINDING);
-        SgBinding sgBinding = osv3().networking().sgBinding().create(Builders.sgBinding().id(SG_BINDING_ID).build());
-        assertEquals(sgBinding.getId(), SG_BINDING_ID);
+        SgBinding sgBinding = osv3().networking().sgBinding().create(Builders.sgBinding().name(SG_BINDING_NAME).build());
+        assertEquals(sgBinding.getName(), SG_BINDING_NAME);
     }
 
     @Test

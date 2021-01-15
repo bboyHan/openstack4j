@@ -15,14 +15,15 @@ import static org.testng.Assert.assertTrue;
 public class SgRuleTests extends AbstractTest {
 
     private static final String SG_RULE_ID = "78dcd363-fc23-aeb6-f44b-56dc5e2fb3ae";
+    private static final String SG_RULE_NAME = "rule1";
     private static final String JSON_SG_RULE = "/network/sg_rule.json";
     private static final String JSON_SG_RULES = "/network/sg_rules.json";
 
     @Test
     public void createSgRule() throws Exception {
         respondWith(JSON_SG_RULE);
-        SgRule sgRule = osv3().networking().sgRule().create(Builders.sgRule().id(SG_RULE_ID).build());
-        assertEquals(sgRule.getId(), SG_RULE_ID);
+        SgRule sgRule = osv3().networking().sgRule().create(Builders.sgRule().name(SG_RULE_NAME).build());
+        assertEquals(sgRule.getName(), SG_RULE_NAME);
     }
 
     @Test

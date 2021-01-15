@@ -200,7 +200,7 @@ public class NeutronSgRule implements SgRule {
         private NeutronSgRule neutronSgRule;
 
         public SgRuleConcreteBuilder() {
-            this.neutronSgRule = new NeutronSgRule();
+            neutronSgRule = new NeutronSgRule();
         }
 
         public SgRuleConcreteBuilder(NeutronSgRule neutronSgRule) {
@@ -209,78 +209,72 @@ public class NeutronSgRule implements SgRule {
 
         @Override
         public SgRule build() {
-            return this.neutronSgRule;
+            return neutronSgRule;
         }
 
         @Override
         public SgRuleBuilder from(SgRule in) {
-            this.neutronSgRule = (NeutronSgRule) in;
-            return this;
-        }
-
-        @Override
-        public SgRuleBuilder id(String id) {
-            this.neutronSgRule.id = id;
+            neutronSgRule = (NeutronSgRule) in;
             return this;
         }
 
         @Override
         public SgRuleBuilder name(String name) {
-            this.neutronSgRule.name = name;
+            neutronSgRule.name = name;
             return this;
         }
 
         @Override
         public SgRuleBuilder tenantId(String tenantId) {
-            this.neutronSgRule.tenantId = tenantId;
+            neutronSgRule.tenantId = tenantId;
             return this;
         }
 
         @Override
         public SgRuleBuilder type(String type) {
-            this.neutronSgRule.type = type;
+            neutronSgRule.type = type;
             return this;
         }
 
         @Override
         public SgRuleBuilder direction(String direction) {
-            this.neutronSgRule.direction = direction;
+            neutronSgRule.direction = direction;
             return this;
         }
 
         @Override
         public SgRuleBuilder protocol(String protocol) {
-            this.neutronSgRule.protocol = protocol;
+            neutronSgRule.protocol = protocol;
             return this;
         }
 
         @Override
         public SgRuleBuilder ipVersion(String ipVersion) {
-            this.neutronSgRule.ipVersion = ipVersion;
+            neutronSgRule.ipVersion = ipVersion;
             return this;
         }
 
         @Override
         public SgRuleBuilder sourceIpAddress(String sourceIpAddress) {
-            this.neutronSgRule.sourceIpAddress = sourceIpAddress;
+            neutronSgRule.sourceIpAddress = sourceIpAddress;
             return this;
         }
 
         @Override
         public SgRuleBuilder destinationIpAddress(String destinationIpAddress) {
-            this.neutronSgRule.destinationIpAddress = destinationIpAddress;
+            neutronSgRule.destinationIpAddress = destinationIpAddress;
             return this;
         }
 
         @Override
         public SgRuleBuilder portRangeMax(String portRangeMax) {
-            this.neutronSgRule.portRangeMax = portRangeMax;
+            neutronSgRule.portRangeMax = portRangeMax;
             return this;
         }
 
         @Override
         public SgRuleBuilder portRangeMin(String portRangeMin) {
-            this.neutronSgRule.portRangeMin = portRangeMin;
+            neutronSgRule.portRangeMin = portRangeMin;
             return this;
         }
 

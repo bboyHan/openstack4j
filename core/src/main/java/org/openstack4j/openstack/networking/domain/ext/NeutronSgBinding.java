@@ -148,7 +148,7 @@ public class NeutronSgBinding implements SgBinding {
         private NeutronSgBinding neutronSgBinding;
 
         public SgBindingConcreteBuilder() {
-            this.neutronSgBinding = new NeutronSgBinding();
+            neutronSgBinding = new NeutronSgBinding();
         }
 
         public SgBindingConcreteBuilder(NeutronSgBinding neutronSgBinding) {
@@ -157,48 +157,42 @@ public class NeutronSgBinding implements SgBinding {
 
         @Override
         public SgBinding build() {
-            return this.neutronSgBinding;
+            return neutronSgBinding;
         }
 
         @Override
         public SgBindingBuilder from(SgBinding in) {
-            this.neutronSgBinding = (NeutronSgBinding) in;
-            return this;
-        }
-
-        @Override
-        public SgBindingBuilder id(String id) {
-            this.neutronSgBinding.id = id;
+            neutronSgBinding = (NeutronSgBinding) in;
             return this;
         }
 
         @Override
         public SgBindingBuilder name(String name) {
-            this.neutronSgBinding.name = name;
+            neutronSgBinding.name = name;
             return this;
         }
 
         @Override
         public SgBindingBuilder tenantId(String tenantId) {
-            this.neutronSgBinding.tenantId = tenantId;
+            neutronSgBinding.tenantId = tenantId;
             return this;
         }
 
         @Override
         public SgBindingBuilder switchIp(String switchIp) {
-            this.neutronSgBinding.switchIp = switchIp;
+            neutronSgBinding.switchIp = switchIp;
             return this;
         }
 
         @Override
         public SgBindingBuilder sgBindingInterface(String sgBindingInterface) {
-            this.neutronSgBinding.sgBindingInterface = sgBindingInterface;
+            neutronSgBinding.sgBindingInterface = sgBindingInterface;
             return this;
         }
 
         @Override
         public SgBindingBuilder interfaceIp(String interfaceIp) {
-            this.neutronSgBinding.interfaceIp = interfaceIp;
+            neutronSgBinding.interfaceIp = interfaceIp;
             return this;
         }
 
