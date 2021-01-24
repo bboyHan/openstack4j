@@ -203,6 +203,12 @@ public class NeutronAclBinding implements AclBinding {
         }
 
         @Override
+        public AclBindingBuilder id(String id) {
+            neutronAclBinding.id = id;
+            return this;
+        }
+
+        @Override
         public AclBindingBuilder tenantId(String tenantId) {
             neutronAclBinding.tenantId = tenantId;
             return this;

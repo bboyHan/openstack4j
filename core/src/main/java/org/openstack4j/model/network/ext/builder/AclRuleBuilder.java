@@ -11,6 +11,12 @@ import org.openstack4j.model.network.ext.AclRule;
 public interface AclRuleBuilder extends Builder<AclRuleBuilder, AclRule> {
 
     /**
+     * @param id : the identifier of the acl rule
+     * @return AclRuleBuilder
+     */
+    AclRuleBuilder id(String id);
+
+    /**
      * @param name : the name of the acl rule
      * @return AclRuleBuilder
      */

@@ -13,6 +13,12 @@ import java.util.List;
 public interface AclPolicyBuilder extends Builder<AclPolicyBuilder, AclPolicy> {
 
     /**
+     * @param id : the identifier of the acl policy
+     * @return AclPolicyBuilder
+     */
+    AclPolicyBuilder id(String id);
+
+    /**
      * @param name : the name of the acl policy
      * @return AclPolicyBuilder
      */

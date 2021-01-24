@@ -375,6 +375,12 @@ public class NeutronAclRule implements AclRule {
         }
 
         @Override
+        public AclRuleBuilder id(String id) {
+            neutronAclRule.id = id;
+            return this;
+        }
+
+        @Override
         public AclRuleBuilder name(String name) {
             neutronAclRule.name = name;
             return this;

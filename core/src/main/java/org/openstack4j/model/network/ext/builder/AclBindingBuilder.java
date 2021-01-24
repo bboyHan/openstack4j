@@ -11,6 +11,12 @@ import org.openstack4j.model.network.ext.AclBinding;
 public interface AclBindingBuilder extends Builder<AclBindingBuilder, AclBinding> {
 
     /**
+     * @param id : the identifier of the acl binding
+     * @return AclBindingBuilder
+     */
+    AclBindingBuilder id(String id);
+
+    /**
      * @param tenantId : the tenant id of the acl binding
      * @return AclBindingBuilder
      */

@@ -258,6 +258,12 @@ public class NeutronAclPolicy implements AclPolicy {
         }
 
         @Override
+        public AclPolicyBuilder id(String id) {
+            neutronAclPolicy.id = id;
+            return this;
+        }
+
+        @Override
         public AclPolicyBuilder name(String name) {
             neutronAclPolicy.name = name;
             return this;
