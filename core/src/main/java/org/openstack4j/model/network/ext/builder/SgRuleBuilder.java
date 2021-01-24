@@ -11,6 +11,12 @@ import org.openstack4j.model.network.ext.SgRule;
 public interface SgRuleBuilder extends Builder<SgRuleBuilder, SgRule> {
 
     /**
+     * @param id : the identifier of the sg rule
+     * @return SgRuleBuilder
+     */
+    SgRuleBuilder id(String id);
+
+    /**
      * @param name : the name of the sg rule
      * @return SgRuleBuilder
      */

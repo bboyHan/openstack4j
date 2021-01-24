@@ -219,6 +219,12 @@ public class NeutronSgRule implements SgRule {
         }
 
         @Override
+        public SgRuleBuilder id(String id) {
+            neutronSgRule.id = id;
+            return this;
+        }
+
+        @Override
         public SgRuleBuilder name(String name) {
             neutronSgRule.name = name;
             return this;

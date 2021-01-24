@@ -167,6 +167,12 @@ public class NeutronSgBinding implements SgBinding {
         }
 
         @Override
+        public SgBindingBuilder id(String id) {
+            neutronSgBinding.id = id;
+            return this;
+        }
+
+        @Override
         public SgBindingBuilder name(String name) {
             neutronSgBinding.name = name;
             return this;

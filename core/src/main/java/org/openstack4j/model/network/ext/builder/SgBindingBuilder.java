@@ -11,6 +11,12 @@ import org.openstack4j.model.network.ext.SgBinding;
 public interface SgBindingBuilder extends Builder<SgBindingBuilder, SgBinding> {
 
     /**
+     * @param id : the identifier of the sg binding
+     * @return SgBindingBuilder
+     */
+    SgBindingBuilder id(String id);
+
+    /**
      * @param name : the name of the sg binding
      * @return SgBindingBuilder
      */
