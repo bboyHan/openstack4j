@@ -27,4 +27,14 @@ public interface SecurityGroup extends Resource, Buildable<NetSecurityGroupBuild
      */
     List<? extends SecurityGroupRule> getRules();
 
+    List<String> getTags();
+
+    void setTags(List<String> tags);
+
+    void addTag(String tag);
+
+    String getCreateTime();
+
+
+
 }

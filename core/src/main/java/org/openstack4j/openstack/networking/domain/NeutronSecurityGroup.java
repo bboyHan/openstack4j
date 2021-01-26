@@ -35,6 +35,17 @@ public class NeutronSecurityGroup implements SecurityGroup {
     @JsonProperty("security_group_rules")
     private List<NeutronSecurityGroupRule> rules;
 
+    @JsonProperty("create_at")
+    private String createTime;
+
+    @JsonProperty("tags")
+    private List<String> tags;
+
+    @Override
+    public List<String> getTags() {
+        return tags;
+    }
+
     /**
      * {@inheritDoc}
      */
@@ -60,13 +71,17 @@ public class NeutronSecurityGroup implements SecurityGroup {
         return this.tenantId;
     }
 
-
     /**
      * {@inheritDoc}
      */
     @Override
     public String getName() {
         return this.name;
+    }
+
+    @Override
+    public String getCreateTime() {
+        return this.createTime;
     }
 
     /**
@@ -93,6 +108,15 @@ public class NeutronSecurityGroup implements SecurityGroup {
         this.tenantId = tenantId;
     }
 
+    @Override
+    public void setTags(List<String> tags) {
+        this.tags = tags;
+    }
+
+    @Override
+    public void addTag(String tag) {
+        this.tags.add(tag);
+    }
 
     /**
      * {@inheritDoc}
@@ -124,6 +148,7 @@ public class NeutronSecurityGroup implements SecurityGroup {
                 .add("name", name)
                 .add("description", description)
                 .add("security_group_rules", rules)
+                .add("tags", tags)
                 .addValue("\n")
                 .toString();
     }
@@ -198,7 +223,7 @@ public class NeutronSecurityGroup implements SecurityGroup {
         /**
          * Instantiates a new security group rule concrete builder.
          *
-         * @param rule the rule
+         * @param in the rule
          */
         public SecurityGroupConcreteBuilder(SecurityGroup in) {
             g = (NeutronSecurityGroup) in;

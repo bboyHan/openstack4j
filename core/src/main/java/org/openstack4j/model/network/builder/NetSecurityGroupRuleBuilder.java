@@ -60,4 +60,6 @@ public interface NetSecurityGroupRuleBuilder extends Builder<NetSecurityGroupRul
      */
     NetSecurityGroupRuleBuilder remoteIpPrefix(String prefix);
 
+    NetSecurityGroupRuleBuilder description(String description);
+
 }

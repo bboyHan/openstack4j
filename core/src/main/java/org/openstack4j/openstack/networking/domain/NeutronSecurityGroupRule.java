@@ -49,6 +49,9 @@ public class NeutronSecurityGroupRule implements SecurityGroupRule {
     @JsonProperty("remote_group_id")
     private String remoteGroupId;
 
+    @JsonProperty("description")
+    private String description;
+
     /**
      * {@inheritDoc}
      */
@@ -141,6 +144,11 @@ public class NeutronSecurityGroupRule implements SecurityGroupRule {
         return this.securityGroupId;
     }
 
+    @Override
+    public String getDescription() {
+        return this.description;
+    }
+
     /**
      * {@inheritDoc}
      */
@@ -156,6 +164,7 @@ public class NeutronSecurityGroupRule implements SecurityGroupRule {
                 .add("protocol", protocol)
                 .add("remoteGroup", remoteGroupId)
                 .add("remoteIpPrefix", remoteIpPrefix)
+                .add("description", description)
                 .addValue("\n")
                 .toString();
     }
@@ -346,6 +355,12 @@ public class NeutronSecurityGroupRule implements SecurityGroupRule {
         @Override
         public NetSecurityGroupRuleBuilder remoteIpPrefix(String prefix) {
             r.remoteIpPrefix = prefix;
+            return this;
+        }
+
+        @Override
+        public NetSecurityGroupRuleBuilder description(String description) {
+            r.description = description;
             return this;
         }
     }
