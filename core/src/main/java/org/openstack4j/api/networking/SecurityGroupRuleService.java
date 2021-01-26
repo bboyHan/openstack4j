@@ -3,7 +3,7 @@ package org.openstack4j.api.networking;
 import org.openstack4j.common.RestService;
 import org.openstack4j.model.network.SecurityGroupRule;
 import org.openstack4j.model.network.options.SecurityGroupOptions;
-import org.openstack4j.openstack.networking.domain.NeutronSecurityGroupRules;
+import org.openstack4j.openstack.networking.domain.NeutronSecurityGroupRule;
 
 import java.util.List;
 import java.util.Map;
@@ -49,7 +49,7 @@ public interface SecurityGroupRuleService extends RestService {
      */
     SecurityGroupRule create(SecurityGroupRule rule);
 
-    NeutronSecurityGroupRules create(NeutronSecurityGroupRules rules);
+    NeutronSecurityGroupRule.SecurityGroupRules create(NeutronSecurityGroupRule.SecurityGroupRules rules);
 
     /**
      * List security group rules accessible by current Tenant.

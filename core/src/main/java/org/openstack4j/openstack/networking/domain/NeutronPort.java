@@ -65,7 +65,6 @@ public class NeutronPort extends TimeEntity implements Port {
     @JsonProperty("binding:profile")
     private Map<String, Object> profile;
     @JsonProperty("qos_policy_id")
-    @JsonInclude
     private String qosPolicyId;
 
     public static PortBuilder builder() {

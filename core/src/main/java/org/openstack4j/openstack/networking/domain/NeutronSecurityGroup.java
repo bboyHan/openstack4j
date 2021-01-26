@@ -35,7 +35,7 @@ public class NeutronSecurityGroup implements SecurityGroup {
     @JsonProperty("security_group_rules")
     private List<NeutronSecurityGroupRule> rules;
 
-    @JsonProperty("create_at")
+    @JsonProperty("created_at")
     private String createTime;
 
     @JsonProperty("tags")
@@ -82,6 +82,11 @@ public class NeutronSecurityGroup implements SecurityGroup {
     @Override
     public String getCreateTime() {
         return this.createTime;
+    }
+
+    @Override
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
     }
 
     /**

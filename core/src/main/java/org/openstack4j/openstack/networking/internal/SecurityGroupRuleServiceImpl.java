@@ -5,7 +5,6 @@ import org.openstack4j.model.network.SecurityGroupRule;
 import org.openstack4j.model.network.options.SecurityGroupOptions;
 import org.openstack4j.openstack.networking.domain.NeutronSecurityGroupRule;
 import org.openstack4j.openstack.networking.domain.NeutronSecurityGroupRule.SecurityGroupRules;
-import org.openstack4j.openstack.networking.domain.NeutronSecurityGroupRules;
 
 import java.util.List;
 import java.util.Map;
@@ -47,9 +46,9 @@ public class SecurityGroupRuleServiceImpl extends BaseNetworkingServices impleme
     }
 
     @Override
-    public NeutronSecurityGroupRules create(NeutronSecurityGroupRules rules) {
+    public NeutronSecurityGroupRule.SecurityGroupRules create(NeutronSecurityGroupRule.SecurityGroupRules rules) {
         checkNotNull(rules);
-        return post(NeutronSecurityGroupRules.class, uri("/security-group-rules")).entity(rules).execute();
+        return post(NeutronSecurityGroupRule.SecurityGroupRules.class, uri("/security-group-rules")).entity(rules).execute();
     }
 
     /**

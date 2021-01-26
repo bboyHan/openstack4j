@@ -3,6 +3,7 @@ package org.openstack4j.openstack.networking.domain;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import com.google.common.base.MoreObjects;
+import org.openstack4j.model.ModelEntity;
 import org.openstack4j.model.network.SecurityGroupRule;
 import org.openstack4j.model.network.builder.NetSecurityGroupRuleBuilder;
 import org.openstack4j.openstack.common.ListResult;
@@ -210,7 +211,7 @@ public class NeutronSecurityGroupRule implements SecurityGroupRule {
      *
      * @author Nathan Anderson
      */
-    public static class SecurityGroupRules extends ListResult<NeutronSecurityGroupRule> {
+    public static class SecurityGroupRules extends ListResult<NeutronSecurityGroupRule> implements ModelEntity {
 
         private static final long serialVersionUID = 1L;
 
@@ -223,6 +224,14 @@ public class NeutronSecurityGroupRule implements SecurityGroupRule {
         @Override
         protected List<NeutronSecurityGroupRule> value() {
             return rules;
+        }
+
+        public void setRuleList(List<NeutronSecurityGroupRule> ruleList) {
+            this.rules = ruleList;
+        }
+
+        public void addRule(NeutronSecurityGroupRule rule) {
+            this.rules.add(rule);
         }
     }
 

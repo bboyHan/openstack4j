@@ -35,6 +35,6 @@ public interface SecurityGroup extends Resource, Buildable<NetSecurityGroupBuild
 
     String getCreateTime();
 
-
+    void setCreateTime(String createTime);
 
 }
