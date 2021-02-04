@@ -27,9 +27,6 @@ public class NeutronSgBinding implements SgBinding {
     @JsonProperty
     private String name;
 
-    @JsonProperty("tenant_id")
-    private String tenantId;
-
     @JsonProperty("switch_ip")
     private String switchIp;
 
@@ -39,8 +36,10 @@ public class NeutronSgBinding implements SgBinding {
     @JsonProperty("interface_ip")
     private String interfaceIp;
 
-    @JsonProperty("acl_rules")
-    private List<String> aclRules;
+    private String vni;
+
+    @JsonProperty("sg_rules")
+    private List<String> sgRules;
 
     @Override
     public SgBindingBuilder toBuilder() {
@@ -72,16 +71,6 @@ public class NeutronSgBinding implements SgBinding {
     }
 
     @Override
-    public String getTenantId() {
-        return tenantId;
-    }
-
-    @Override
-    public void setTenantId(String tenantId) {
-        this.tenantId = tenantId;
-    }
-
-    @Override
     public String getSwitchIp() {
         return switchIp;
     }
@@ -109,12 +98,21 @@ public class NeutronSgBinding implements SgBinding {
     }
 
     @Override
-    public List<String> getAclRules() {
-        return aclRules;
+    public String getVni() {
+        return vni;
     }
 
-    public void setAclRules(List<String> aclRules) {
-        this.aclRules = aclRules;
+    public void setVni(String vni) {
+        this.vni = vni;
+    }
+
+    @Override
+    public List<String> getSgRules() {
+        return sgRules;
+    }
+
+    public void setSgRules(List<String> sgRules) {
+        this.sgRules = sgRules;
     }
 
     @Override
@@ -122,11 +120,11 @@ public class NeutronSgBinding implements SgBinding {
         return MoreObjects.toStringHelper(this).omitNullValues()
                 .add("id", id)
                 .add("name", name)
-                .add("tenantId", tenantId)
                 .add("switchIp", switchIp)
                 .add("sgBindingInterface", sgBindingInterface)
                 .add("interfaceIp", interfaceIp)
-                .add("aclRules", aclRules)
+                .add("vni", vni)
+                .add("sgRules", sgRules)
                 .toString();
     }
 
@@ -179,12 +177,6 @@ public class NeutronSgBinding implements SgBinding {
         }
 
         @Override
-        public SgBindingBuilder tenantId(String tenantId) {
-            neutronSgBinding.tenantId = tenantId;
-            return this;
-        }
-
-        @Override
         public SgBindingBuilder switchIp(String switchIp) {
             neutronSgBinding.switchIp = switchIp;
             return this;
@@ -199,6 +191,18 @@ public class NeutronSgBinding implements SgBinding {
         @Override
         public SgBindingBuilder interfaceIp(String interfaceIp) {
             neutronSgBinding.interfaceIp = interfaceIp;
+            return this;
+        }
+
+        @Override
+        public SgBindingBuilder vni(String vni) {
+            neutronSgBinding.vni = vni;
+            return this;
+        }
+
+        @Override
+        public SgBindingBuilder sgRules(List<String> sgRules) {
+            neutronSgBinding.sgRules = sgRules;
             return this;
         }
 

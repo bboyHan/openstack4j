@@ -3,6 +3,8 @@ package org.openstack4j.model.network.ext.builder;
 import org.openstack4j.common.Buildable.Builder;
 import org.openstack4j.model.network.ext.SgBinding;
 
+import java.util.List;
+
 /**
  * A builder to create an sg binding
  *
@@ -23,12 +25,6 @@ public interface SgBindingBuilder extends Builder<SgBindingBuilder, SgBinding> {
     SgBindingBuilder name(String name);
 
     /**
-     * @param tenantId : the tenant id of the sg binding
-     * @return SgBindingBuilder
-     */
-    SgBindingBuilder tenantId(String tenantId);
-
-    /**
      * @param switchIp : the switch ip of the sg binding
      * @return SgBindingBuilder
      */
@@ -45,5 +41,17 @@ public interface SgBindingBuilder extends Builder<SgBindingBuilder, SgBinding> {
      * @return SgBindingBuilder
      */
     SgBindingBuilder interfaceIp(String interfaceIp);
+
+    /**
+     * @param vni : the vni of the sg binding
+     * @return SgBindingBuilder
+     */
+    SgBindingBuilder vni(String vni);
+
+    /**
+     * @param sgRules : the sg rules of the sg binding
+     * @return SgBindingBuilder
+     */
+    SgBindingBuilder sgRules(List<String> sgRules);
 
 }

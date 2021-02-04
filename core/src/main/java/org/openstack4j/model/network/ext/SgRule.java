@@ -1,7 +1,7 @@
 package org.openstack4j.model.network.ext;
 
 import org.openstack4j.common.Buildable;
-import org.openstack4j.model.common.Resource;
+import org.openstack4j.model.common.BasicResource;
 import org.openstack4j.model.network.ext.builder.SgRuleBuilder;
 
 /**
@@ -9,7 +9,7 @@ import org.openstack4j.model.network.ext.builder.SgRuleBuilder;
  *
  * @author liwanjun
  */
-public interface SgRule extends Resource, Buildable<SgRuleBuilder> {
+public interface SgRule extends BasicResource, Buildable<SgRuleBuilder> {
 
     /**
      * @return the type of the sg rule
@@ -50,5 +50,10 @@ public interface SgRule extends Resource, Buildable<SgRuleBuilder> {
      * @return the port range min of the sg rule
      */
     String getPortRangeMin();
+
+    /**
+     * @return the sg binding id of the sg rule
+     */
+    String getSgBindingId();
 
 }

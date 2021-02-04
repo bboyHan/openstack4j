@@ -23,12 +23,6 @@ public interface SgRuleBuilder extends Builder<SgRuleBuilder, SgRule> {
     SgRuleBuilder name(String name);
 
     /**
-     * @param tenantId : the tenant id of the sg rule
-     * @return SgRuleBuilder
-     */
-    SgRuleBuilder tenantId(String tenantId);
-
-    /**
      * @param type : the type of the sg rule
      * @return SgRuleBuilder
      */
@@ -75,5 +69,11 @@ public interface SgRuleBuilder extends Builder<SgRuleBuilder, SgRule> {
      * @return SgRuleBuilder
      */
     SgRuleBuilder portRangeMin(String portRangeMin);
+
+    /**
+     * @param sgBindingId : the sg binding id of the sg rule
+     * @return SgRuleBuilder
+     */
+    SgRuleBuilder sgBindingId(String sgBindingId);
 
 }

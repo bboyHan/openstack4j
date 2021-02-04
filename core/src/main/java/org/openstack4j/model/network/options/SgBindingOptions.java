@@ -21,14 +21,6 @@ public class SgBindingOptions extends BaseListOptions<SgBindingOptions> {
     }
 
     /**
-     * @param tenantId : the tenant id of the sg binding
-     * @return options
-     */
-    public SgBindingOptions tenantId(String tenantId) {
-        return add("tenant_id", tenantId);
-    }
-
-    /**
      * @param switchIp : the switch ip of the sg binding
      * @return options
      */
@@ -50,6 +42,14 @@ public class SgBindingOptions extends BaseListOptions<SgBindingOptions> {
      */
     public SgBindingOptions interfaceIp(String interfaceIp) {
         return add("interface_ip", interfaceIp);
+    }
+
+    /**
+     * @param vni : the vni of the sg binding
+     * @return options
+     */
+    public SgBindingOptions vni(String vni) {
+        return add("vni", vni);
     }
 
     /**

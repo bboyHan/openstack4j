@@ -27,9 +27,6 @@ public class NeutronSgRule implements SgRule {
     @JsonProperty
     private String name;
 
-    @JsonProperty("tenant_id")
-    private String tenantId;
-
     @JsonProperty
     private String type;
 
@@ -53,6 +50,9 @@ public class NeutronSgRule implements SgRule {
 
     @JsonProperty("port_range_min")
     private String portRangeMin;
+
+    @JsonProperty("sg_binding_id")
+    private String sgBindingId;
 
     @Override
     public SgRuleBuilder toBuilder() {
@@ -81,16 +81,6 @@ public class NeutronSgRule implements SgRule {
     @Override
     public void setId(String id) {
         this.id = id;
-    }
-
-    @Override
-    public String getTenantId() {
-        return tenantId;
-    }
-
-    @Override
-    public void setTenantId(String tenantId) {
-        this.tenantId = tenantId;
     }
 
     @Override
@@ -166,11 +156,19 @@ public class NeutronSgRule implements SgRule {
     }
 
     @Override
+    public String getSgBindingId() {
+        return sgBindingId;
+    }
+
+    public void setSgBindingId(String sgBindingId) {
+        this.sgBindingId = sgBindingId;
+    }
+
+    @Override
     public String toString() {
         return MoreObjects.toStringHelper(this).omitNullValues()
                 .add("id", id)
                 .add("name", name)
-                .add("tenantId", tenantId)
                 .add("type", type)
                 .add("direction", direction)
                 .add("protocol", protocol)
@@ -179,6 +177,7 @@ public class NeutronSgRule implements SgRule {
                 .add("destinationIpAddress", destinationIpAddress)
                 .add("portRangeMax", portRangeMax)
                 .add("portRangeMin", portRangeMin)
+                .add("sgBindingId", sgBindingId)
                 .toString();
     }
 
@@ -231,12 +230,6 @@ public class NeutronSgRule implements SgRule {
         }
 
         @Override
-        public SgRuleBuilder tenantId(String tenantId) {
-            neutronSgRule.tenantId = tenantId;
-            return this;
-        }
-
-        @Override
         public SgRuleBuilder type(String type) {
             neutronSgRule.type = type;
             return this;
@@ -281,6 +274,12 @@ public class NeutronSgRule implements SgRule {
         @Override
         public SgRuleBuilder portRangeMin(String portRangeMin) {
             neutronSgRule.portRangeMin = portRangeMin;
+            return this;
+        }
+
+        @Override
+        public SgRuleBuilder sgBindingId(String sgBindingId) {
+            neutronSgRule.sgBindingId = sgBindingId;
             return this;
         }
 

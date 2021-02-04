@@ -21,14 +21,6 @@ public class SgRuleOptions extends BaseListOptions<SgRuleOptions> {
     }
 
     /**
-     * @param tenantId : the tenant id of the sg rule
-     * @return options
-     */
-    public SgRuleOptions tenantId(String tenantId) {
-        return add("tenant_id", tenantId);
-    }
-
-    /**
      * @param type : the type of the sg rule
      * @return options
      */
@@ -90,6 +82,14 @@ public class SgRuleOptions extends BaseListOptions<SgRuleOptions> {
      */
     public SgRuleOptions portRangeMin(String portRangeMin) {
         return add("port_range_min", portRangeMin);
+    }
+
+    /**
+     * @param sgBindingId : the sg binding id of the sg rule
+     * @return options
+     */
+    public SgRuleOptions sgBindingId(String sgBindingId) {
+        return add("sg_binding_id", sgBindingId);
     }
 
     /**

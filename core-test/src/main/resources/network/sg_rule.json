@@ -1,15 +1,15 @@
 {
   "sg_rule": {
     "name": "rule1",
-    "tenant_id": "d382007aa9904763a801f68ecf065cf5",
     "id": "78dcd363-fc23-aeb6-f44b-56dc5e2fb3ae",
     "type": "permit",
-    "direction": "in",
+    "direction": "ingress",
     "protocol": "tcp",
     "ip_version": "4",
     "source_ip_address": "10.11.22.0/24",
     "destination_ip_address": null,
     "port_range_max": "500",
-    "port_range_min": "500"
+    "port_range_min": "500",
+    "sg_binding_id": "4512d643-24fc-4fae-af4b-321c5e2eb3d1"
   }
 }
