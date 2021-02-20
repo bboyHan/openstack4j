@@ -42,15 +42,15 @@ public class SubnetListOptions extends BaseListOptions<SubnetListOptions> {
         return add("enable_dhcp", enableDHCP);
     }
 
-    public SubnetListOptions gatewayIp(boolean gatewayIp) {
+    public SubnetListOptions gatewayIp(String gatewayIp) {
         return add("gateway_ip", gatewayIp);
     }
 
-    public SubnetListOptions cidr(boolean cidr) {
+    public SubnetListOptions cidr(String cidr) {
         return add("cidr", cidr);
     }
 
-    public SubnetListOptions segmentId(boolean segmentId) {
+    public SubnetListOptions segmentId(String segmentId) {
         return add("segment_id", segmentId);
     }
 
