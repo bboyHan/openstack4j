@@ -24,7 +24,7 @@ public class SgBindingServiceImpl extends BaseNetworkingServices implements SgBi
      */
     @Override
     public List<? extends SgBinding> list() {
-        return get(SgBindings.class, uri("/bmsg/sg_bindings")).execute().getList();
+        return get(SgBindings.class, uri("/sg_bindings")).execute().getList();
     }
 
     /**
@@ -35,7 +35,7 @@ public class SgBindingServiceImpl extends BaseNetworkingServices implements SgBi
         if (options == null) {
             return list();
         }
-        return get(SgBindings.class, uri("/bmsg/sg_bindings")).paramLists(options.getOptions()).execute().getList();
+        return get(SgBindings.class, uri("/sg_bindings")).paramLists(options.getOptions()).execute().getList();
     }
 
     /**
@@ -44,7 +44,7 @@ public class SgBindingServiceImpl extends BaseNetworkingServices implements SgBi
     @Override
     public SgBinding get(String id) {
         checkNotNull(id);
-        return get(NeutronSgBinding.class, uri("/bmsg/sg_bindings/%s", id)).execute();
+        return get(NeutronSgBinding.class, uri("/sg_bindings/%s", id)).execute();
     }
 
     /**
@@ -53,7 +53,7 @@ public class SgBindingServiceImpl extends BaseNetworkingServices implements SgBi
     @Override
     public SgBinding create(SgBinding sgBinding) {
         checkNotNull(sgBinding);
-        return post(NeutronSgBinding.class, uri("/bmsg/sg_bindings")).entity(sgBinding).execute();
+        return post(NeutronSgBinding.class, uri("/sg_bindings")).entity(sgBinding).execute();
     }
 
     /**
@@ -62,7 +62,7 @@ public class SgBindingServiceImpl extends BaseNetworkingServices implements SgBi
     @Override
     public ActionResponse delete(String id) {
         checkNotNull(id);
-        return deleteWithResponse(uri("/bmsg/sg_bindings/%s", id)).execute();
+        return deleteWithResponse(uri("/sg_bindings/%s", id)).execute();
     }
 
 }
