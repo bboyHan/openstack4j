@@ -53,6 +53,12 @@ public class NeutronSecurityGroupRule implements SecurityGroupRule {
     @JsonProperty("description")
     private String description;
 
+    @JsonProperty("created_at")
+    private String createdAt;
+
+    @JsonProperty("action")
+    private String action = "allow";
+
     /**
      * {@inheritDoc}
      */
@@ -150,6 +156,12 @@ public class NeutronSecurityGroupRule implements SecurityGroupRule {
         return this.description;
     }
 
+    @Override
+    public String getCreatedAt() { return this.createdAt; }
+
+    @Override
+    public String getAction() { return this.action; }
+
     /**
      * {@inheritDoc}
      */
@@ -166,6 +178,8 @@ public class NeutronSecurityGroupRule implements SecurityGroupRule {
                 .add("remoteGroup", remoteGroupId)
                 .add("remoteIpPrefix", remoteIpPrefix)
                 .add("description", description)
+                .add("createdAt", createdAt)
+                .add("action", action)
                 .addValue("\n")
                 .toString();
     }
@@ -370,6 +384,18 @@ public class NeutronSecurityGroupRule implements SecurityGroupRule {
         @Override
         public NetSecurityGroupRuleBuilder description(String description) {
             r.description = description;
+            return this;
+        }
+
+        @Override
+        public NetSecurityGroupRuleBuilder createdAt(String createdAt) {
+            r.createdAt = createdAt;
+            return this;
+        }
+
+        @Override
+        public NetSecurityGroupRuleBuilder action(String action) {
+            r.action = action;
             return this;
         }
     }

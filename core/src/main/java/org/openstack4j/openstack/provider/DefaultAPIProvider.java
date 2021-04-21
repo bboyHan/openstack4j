@@ -292,6 +292,7 @@ public class DefaultAPIProvider implements APIProvider {
         bind(AclPolicyService.class, AclPolicyServiceImpl.class);
         bind(AclRuleService.class, AclRuleServiceImpl.class);
         bind(AclBindingService.class, AclBindingServiceImpl.class);
+        bind(SecurityGroupBlackRuleService.class, SecurityGroupBlackRuleServiceImpl.class);
     }
 
     /**

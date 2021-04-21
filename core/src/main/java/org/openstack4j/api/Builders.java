@@ -1230,4 +1230,7 @@ public class Builders {
         return NeutronAclBinding.builder();
     }
 
+    public static SecurityGroupBlackRuleBuilder sgBlackRule(){
+        return NeutronSecurityGroupBlackRule.builder();
+    }
 }

@@ -146,4 +146,8 @@ public class NetworkingServiceImpl implements NetworkingService {
         return Apis.get(AclBindingService.class);
     }
 
+    @Override
+    public SecurityGroupBlackRuleService sgBlackRule() {
+        return Apis.get(SecurityGroupBlackRuleService.class);
+    }
 }

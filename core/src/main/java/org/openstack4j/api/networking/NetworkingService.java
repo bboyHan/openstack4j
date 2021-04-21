@@ -89,4 +89,6 @@ public interface NetworkingService extends RestService {
     AclRuleService aclRule();
 
     AclBindingService aclBinding();
+
+    SecurityGroupBlackRuleService sgBlackRule();
 }

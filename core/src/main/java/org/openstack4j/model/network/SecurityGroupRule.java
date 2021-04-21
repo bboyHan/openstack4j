@@ -81,7 +81,24 @@ public interface SecurityGroupRule extends ModelEntity, Buildable<NetSecurityGro
      */
     String getTenantId();
 
+    /**
+     * Gets the description
+     *
+     * @return description
+     */
     String getDescription();
 
+    /**
+     * Gets the created at
+     *
+     * @return created at
+     */
+    String getCreatedAt();
 
+    /**
+     * Gets the action
+     *
+     * @return created at
+     */
+    String getAction();
 }

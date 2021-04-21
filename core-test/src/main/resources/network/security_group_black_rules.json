@@ -1,0 +1,16 @@
+{
+  "securitygroupblacklistrules":[
+    {
+      "security_group_id":"52bcd9c3-bc81-4846-9d1c-a6de79b65ed4",
+      "direction":"ingress",
+      "protocol":"udp",
+      "port_range_min":19,
+      "port_range_max":20,
+      "ethertype":"IPv4",
+      "remote_group_id":"52bcd9c3-bc81-4846-9d1c-a6de79b65ed4",
+      "remote_ip_prefix": null,
+      "id":"23c7a45e-7630-437b-852d-be70f18c8bae",
+      "project_id":" 3e08f003cf1b4e4b86931a352052e0de"
+    }
+  ]
+}

@@ -28,6 +28,12 @@ public class SecurityGroupOptions extends BaseListOptions<SecurityGroupOptions> 
         return add("id", id);
     }
 
+    public SecurityGroupOptions direction(String direction) {
+        return add("direction", direction);
+    }
+
+    public SecurityGroupOptions securityGroupId(String securityGroupId) { return add("security_group_id", securityGroupId); }
+
     public static SecurityGroupOptions create() {
         return new SecurityGroupOptions();
     }
