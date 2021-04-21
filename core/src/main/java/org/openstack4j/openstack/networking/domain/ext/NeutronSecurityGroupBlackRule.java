@@ -32,10 +32,10 @@ public class NeutronSecurityGroupBlackRule implements SecurityGroupBlackRule {
     private String ethertype;
 
     @JsonProperty("port_range_min")
-    private String portRangeMin;
+    private Integer portRangeMin;
 
     @JsonProperty("port_range_max")
-    private String portRangeMax;
+    private Integer portRangeMax;
 
     @JsonProperty("remote_group_id")
     private String remoteGroupId;
@@ -90,10 +90,10 @@ public class NeutronSecurityGroupBlackRule implements SecurityGroupBlackRule {
     public String getProtocol() { return protocol; }
 
     @Override
-    public String getPortRangeMin() { return portRangeMin; }
+    public Integer getPortRangeMin() { return portRangeMin; }
 
     @Override
-    public String getPortRangeMax() { return portRangeMax; }
+    public Integer getPortRangeMax() { return portRangeMax; }
 
     @Override
     public String getEthertype() { return ethertype; }
@@ -213,13 +213,13 @@ public class NeutronSecurityGroupBlackRule implements SecurityGroupBlackRule {
         }
 
         @Override
-        public SecurityGroupBlackRuleBuilder portRangeMin(String portRangeMin) {
+        public SecurityGroupBlackRuleBuilder portRangeMin(Integer portRangeMin) {
             neutronSgBlackRule.portRangeMin = portRangeMin;
             return this;
         }
 
         @Override
-        public SecurityGroupBlackRuleBuilder portRangeMax(String portRangeMax) {
+        public SecurityGroupBlackRuleBuilder portRangeMax(Integer portRangeMax) {
             neutronSgBlackRule.portRangeMax = portRangeMax;
             return this;
         }

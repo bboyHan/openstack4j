@@ -32,18 +32,18 @@ public interface SecurityGroupBlackRuleBuilder extends Builder<SecurityGroupBlac
      */
     SecurityGroupBlackRuleBuilder protocol(String protocol);
 
-    /**\
+    /**
      *
      * @param portRangeMin the port range min of the sg black rule
      * @return the security group black rule builder
      */
-    SecurityGroupBlackRuleBuilder portRangeMin(String portRangeMin);
+    SecurityGroupBlackRuleBuilder portRangeMin(Integer portRangeMin);
 
     /**
      * @param portRangeMax port range max of the sg black rule
      * @return the security group black rule builder
      */
-    SecurityGroupBlackRuleBuilder portRangeMax(String portRangeMax);
+    SecurityGroupBlackRuleBuilder portRangeMax(Integer portRangeMax);
 
     /**
      * @param ethertype the ethertype of the sg black rule

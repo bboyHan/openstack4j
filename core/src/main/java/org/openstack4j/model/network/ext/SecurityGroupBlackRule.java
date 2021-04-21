@@ -24,12 +24,12 @@ public interface SecurityGroupBlackRule extends Resource, Buildable<SecurityGrou
     /**
      * @return the port range min of the sg black rule
      */
-    String getPortRangeMin();
+    Integer getPortRangeMin();
 
     /**
      * @return the port range max of the sg black rule
      */
-    String getPortRangeMax();
+    Integer getPortRangeMax();
 
     /**
      * @return the ethertype of the sg black rule
