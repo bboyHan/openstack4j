@@ -34,8 +34,8 @@ public class NeutronSecurityGroupBlackRule implements SecurityGroupBlackRule {
     @JsonProperty
     private String protocol;
 
-    @JsonProperty
-    private String ethertype;
+    @JsonProperty("ethertype")
+    private String etherType;
 
     @JsonProperty("port_range_min")
     private Integer portRangeMin;
@@ -57,9 +57,6 @@ public class NeutronSecurityGroupBlackRule implements SecurityGroupBlackRule {
 
     @JsonProperty("created_time")
     private String createdAt;
-
-    @JsonProperty
-    private String action = "reject";
 
     @Override
     public SecurityGroupBlackRuleBuilder toBuilder() {
@@ -96,13 +93,13 @@ public class NeutronSecurityGroupBlackRule implements SecurityGroupBlackRule {
     public String getProtocol() { return protocol; }
 
     @Override
+    public String getEtherType() { return etherType; }
+
+    @Override
     public Integer getPortRangeMin() { return portRangeMin; }
 
     @Override
     public Integer getPortRangeMax() { return portRangeMax; }
-
-    @Override
-    public String getEthertype() { return ethertype; }
 
     @Override
     public String getRemoteGroupId() { return remoteGroupId; }
@@ -119,9 +116,6 @@ public class NeutronSecurityGroupBlackRule implements SecurityGroupBlackRule {
     @Override
     public String getCreatedAt() { return createdAt; }
 
-    @Override
-    public String getAction() { return action; }
-
     public void setSecurityGroupId(String securityGroupId) { this.securityGroupId = securityGroupId; }
 
     public void setDirection(String direction) { this.direction = direction; }
@@ -132,7 +126,7 @@ public class NeutronSecurityGroupBlackRule implements SecurityGroupBlackRule {
 
     public void setPortRangeMax(Integer portRangeMax) { this.portRangeMax = portRangeMax; }
 
-    public void setEthertype(String ethertype) { this.ethertype = ethertype; }
+    public void setEtherType(String etherType) { this.etherType = etherType; }
 
     public void setRemoteGroupId(String remoteGroupId) { this.remoteGroupId = remoteGroupId; }
 
@@ -144,8 +138,6 @@ public class NeutronSecurityGroupBlackRule implements SecurityGroupBlackRule {
 
     public void setCreatedAt(String createdAt) { this.createdAt = createdAt; }
 
-    public void setAction(String action) { this.action = action; }
-
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this).omitNullValues()
@@ -153,7 +145,7 @@ public class NeutronSecurityGroupBlackRule implements SecurityGroupBlackRule {
                 .add("securityGroupId", securityGroupId)
                 .add("direction", direction)
                 .add("protocol", protocol)
-                .add("ethertype", ethertype)
+                .add("etherType", etherType)
                 .add("portRangeMin", portRangeMin)
                 .add("portRangeMax", portRangeMax)
                 .add("remoteGroupId", remoteGroupId)
@@ -161,7 +153,6 @@ public class NeutronSecurityGroupBlackRule implements SecurityGroupBlackRule {
                 .add("projectId", projectId)
                 .add("description", description)
                 .add("createdAt", createdAt)
-                .add("action", action)
                 .toString();
     }
 
@@ -231,8 +222,8 @@ public class NeutronSecurityGroupBlackRule implements SecurityGroupBlackRule {
         }
 
         @Override
-        public SecurityGroupBlackRuleBuilder ethertype(String ethertype) {
-            neutronSgBlackRule.ethertype = ethertype;
+        public SecurityGroupBlackRuleBuilder etherType(String etherType) {
+            neutronSgBlackRule.etherType = etherType;
             return this;
         }
 
@@ -263,12 +254,6 @@ public class NeutronSecurityGroupBlackRule implements SecurityGroupBlackRule {
         @Override
         public SecurityGroupBlackRuleBuilder createdAt(String createdAt) {
             neutronSgBlackRule.createdAt = createdAt;
-            return this;
-        }
-
-        @Override
-        public SecurityGroupBlackRuleBuilder action(String action) {
-            neutronSgBlackRule.action = action;
             return this;
         }
     }

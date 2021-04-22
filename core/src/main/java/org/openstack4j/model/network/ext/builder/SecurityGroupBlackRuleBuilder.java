@@ -46,10 +46,10 @@ public interface SecurityGroupBlackRuleBuilder extends Builder<SecurityGroupBlac
     SecurityGroupBlackRuleBuilder portRangeMax(Integer portRangeMax);
 
     /**
-     * @param ethertype the ethertype of the sg black rule
+     * @param etherType the ethertype of the sg black rule
      * @return the security group black rule builder
      */
-    SecurityGroupBlackRuleBuilder ethertype(String ethertype);
+    SecurityGroupBlackRuleBuilder etherType(String etherType);
 
     /**
      * @param remoteGroupId the remote group id of the sg black rule
@@ -80,10 +80,4 @@ public interface SecurityGroupBlackRuleBuilder extends Builder<SecurityGroupBlac
      * @return the security group black rule builder
      */
     SecurityGroupBlackRuleBuilder createdAt(String createdAt);
-
-    /**
-     * @param action the action the sg black rule
-     * @return the security group black rule builder
-     */
-    SecurityGroupBlackRuleBuilder action(String action);
 }

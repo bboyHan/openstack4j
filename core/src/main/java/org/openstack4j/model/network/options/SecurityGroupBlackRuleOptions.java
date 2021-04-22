@@ -40,10 +40,10 @@ public class SecurityGroupBlackRuleOptions extends BaseListOptions<SecurityGroup
     public SecurityGroupBlackRuleOptions protocol(String protocol){ return add("protocol", protocol);}
 
     /**
-     * @param ethertype the ethertype of the sg black rule
+     * @param etherType the ethertype of the sg black rule
      * @return options
      */
-    public SecurityGroupBlackRuleOptions ethertype(String ethertype){ return add("ethertype", ethertype);}
+    public SecurityGroupBlackRuleOptions etherType(String etherType){ return add("ethertype", etherType);}
 
     /**
      * @param portRangeMin the port range min of the sg black rule

@@ -69,9 +69,4 @@ public interface NetSecurityGroupRuleBuilder extends Builder<NetSecurityGroupRul
      * @see SecurityGroupRule#getCreatedAt()
      */
     NetSecurityGroupRuleBuilder createdAt(String description);
-
-    /**
-     * @see SecurityGroupRule#getAction()
-     */
-    NetSecurityGroupRuleBuilder action(String action);
 }

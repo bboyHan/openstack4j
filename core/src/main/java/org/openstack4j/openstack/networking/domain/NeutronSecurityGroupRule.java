@@ -56,9 +56,6 @@ public class NeutronSecurityGroupRule implements SecurityGroupRule {
     @JsonProperty("created_at")
     private String createdAt;
 
-    @JsonProperty("action")
-    private String action = "allow";
-
     /**
      * {@inheritDoc}
      */
@@ -159,8 +156,27 @@ public class NeutronSecurityGroupRule implements SecurityGroupRule {
     @Override
     public String getCreatedAt() { return this.createdAt; }
 
-    @Override
-    public String getAction() { return this.action; }
+    public void setId(String id) { this.id = id; }
+
+    public void setSecurityGroupId(String securityGroupId) { this.securityGroupId = securityGroupId; }
+
+    public void setDirection(String direction) { this.direction = direction; }
+
+    public void setProtocol(String protocol) {  this.protocol = protocol; }
+
+    public void setPortRangeMin(Integer portRangeMin) { this.portRangeMin = portRangeMin; }
+
+    public void setPortRangeMax(Integer portRangeMax) { this.portRangeMax = portRangeMax; }
+
+    public void setEthertype(String ethertype) { this.etherType = ethertype; }
+
+    public void setRemoteGroupId(String remoteGroupId) { this.remoteGroupId = remoteGroupId; }
+
+    public void setRemoteIpPrefix(String remoteIpPrefix) { this.remoteIpPrefix = remoteIpPrefix; }
+
+    public void setDescription(String description) { this.description = description; }
+
+    public void setCreatedAt(String createdAt) { this.createdAt = createdAt; }
 
     /**
      * {@inheritDoc}
@@ -179,7 +195,6 @@ public class NeutronSecurityGroupRule implements SecurityGroupRule {
                 .add("remoteIpPrefix", remoteIpPrefix)
                 .add("description", description)
                 .add("createdAt", createdAt)
-                .add("action", action)
                 .addValue("\n")
                 .toString();
     }
@@ -390,12 +405,6 @@ public class NeutronSecurityGroupRule implements SecurityGroupRule {
         @Override
         public NetSecurityGroupRuleBuilder createdAt(String createdAt) {
             r.createdAt = createdAt;
-            return this;
-        }
-
-        @Override
-        public NetSecurityGroupRuleBuilder action(String action) {
-            r.action = action;
             return this;
         }
     }

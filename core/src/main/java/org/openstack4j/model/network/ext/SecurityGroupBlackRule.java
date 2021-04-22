@@ -34,7 +34,7 @@ public interface SecurityGroupBlackRule extends Resource, Buildable<SecurityGrou
     /**
      * @return the ethertype of the sg black rule
      */
-    String getEthertype();
+    String getEtherType();
 
     /**
      * @return the remote group id of the sg black rule
@@ -60,9 +60,4 @@ public interface SecurityGroupBlackRule extends Resource, Buildable<SecurityGrou
      * @return the created at of the sg black rule
      */
     String getCreatedAt();
-
-    /**
-     * @return the action of the sg black rule
-     */
-    String getAction();
 }
