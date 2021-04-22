@@ -54,15 +54,15 @@ public interface SecurityGroupBlackRule extends Resource, Buildable<SecurityGrou
     /**
      * @return the description of the sg black rule
      */
-    String description();
+    String getDescription();
 
     /**
      * @return the created at of the sg black rule
      */
-    String createdAt();
+    String getCreatedAt();
 
     /**
      * @return the action of the sg black rule
      */
-    String action();
+    String getAction();
 }

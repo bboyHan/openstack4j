@@ -16,19 +16,25 @@ public class NeutronSecurityGroupBlackRule implements SecurityGroupBlackRule {
 
     private static final long serialVersionUID = 1L;
 
-    @JsonProperty("id")
+    @JsonProperty
     private String id;
+
+    @JsonProperty
+    private String name;
+
+    @JsonProperty("tenant_id")
+    private String tenantId;
 
     @JsonProperty("security_group_id")
     private String securityGroupId;
 
-    @JsonProperty("direction")
+    @JsonProperty
     private String direction;
 
-    @JsonProperty("protocol")
+    @JsonProperty
     private String protocol;
 
-    @JsonProperty("ethertype")
+    @JsonProperty
     private String ethertype;
 
     @JsonProperty("port_range_min")
@@ -46,13 +52,13 @@ public class NeutronSecurityGroupBlackRule implements SecurityGroupBlackRule {
     @JsonProperty("project_id")
     private String projectId;
 
-    @JsonProperty("description")
+    @JsonProperty
     private String description;
 
-    @JsonProperty("created_at")
+    @JsonProperty("created_time")
     private String createdAt;
 
-    @JsonProperty("action")
+    @JsonProperty
     private String action = "reject";
 
     @Override
@@ -60,19 +66,19 @@ public class NeutronSecurityGroupBlackRule implements SecurityGroupBlackRule {
        return new SecurityGroupConcreteBulider(this);
     }
 
-    public static SecurityGroupBlackRuleBuilder builder() { return new SecurityGroupConcreteBulider();}
+    public static SecurityGroupBlackRuleBuilder builder() { return new SecurityGroupConcreteBulider(); }
 
     @Override
-    public String getTenantId() { return null; }
+    public String getTenantId() { return tenantId; }
 
     @Override
-    public void setTenantId(String tenantId) { }
+    public void setTenantId(String tenantId) { this.tenantId = tenantId; }
 
     @Override
-    public String getName() { return null; }
+    public String getName() { return name; }
 
     @Override
-    public void setName(String name) { }
+    public void setName(String name) { this.name = name;}
 
     @Override
     public String getId() { return id; }
@@ -108,37 +114,37 @@ public class NeutronSecurityGroupBlackRule implements SecurityGroupBlackRule {
     public String getProjectId() { return projectId; }
 
     @Override
-    public String description() { return description; }
+    public String getDescription() { return description;  }
 
     @Override
-    public String createdAt() { return createdAt; }
+    public String getCreatedAt() { return createdAt; }
 
     @Override
-    public String action() { return action; }
+    public String getAction() { return action; }
 
-    public void setSecurityGroupId() { this.securityGroupId = securityGroupId; }
+    public void setSecurityGroupId(String securityGroupId) { this.securityGroupId = securityGroupId; }
 
-    public void setDirection() { this.direction = direction; }
+    public void setDirection(String direction) { this.direction = direction; }
 
-    public void setProtocol() {  this.protocol = protocol; }
+    public void setProtocol(String protocol) {  this.protocol = protocol; }
 
-    public void setPortRangeMin() { this.portRangeMin = portRangeMin; }
+    public void setPortRangeMin(Integer portRangeMin) { this.portRangeMin = portRangeMin; }
 
-    public void setPortRangeMax() { this.portRangeMax = portRangeMax; }
+    public void setPortRangeMax(Integer portRangeMax) { this.portRangeMax = portRangeMax; }
 
-    public void setEthertype() { this.ethertype = ethertype; }
+    public void setEthertype(String ethertype) { this.ethertype = ethertype; }
 
-    public void setRemoteGroupId() { this.remoteGroupId = remoteGroupId; }
+    public void setRemoteGroupId(String remoteGroupId) { this.remoteGroupId = remoteGroupId; }
 
-    public void setRemoteIpPrefix() { this.remoteIpPrefix = remoteIpPrefix; }
+    public void setRemoteIpPrefix(String remoteIpPrefix) { this.remoteIpPrefix = remoteIpPrefix; }
 
-    public void setProjectId() { this.projectId = projectId; }
+    public void setProjectId(String projectId) { this.projectId = projectId; }
 
-    public void setDescription() { this.description = description; }
+    public void setDescription(String description) { this.description = description; }
 
-    public void setCreatedAt() { this.createdAt = createdAt; }
+    public void setCreatedAt(String createdAt) { this.createdAt = createdAt; }
 
-    public void setAction() { this.action = action; }
+    public void setAction(String action) { this.action = action; }
 
     @Override
     public String toString() {
