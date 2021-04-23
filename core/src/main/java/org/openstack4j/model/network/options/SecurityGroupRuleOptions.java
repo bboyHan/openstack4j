@@ -11,6 +11,10 @@ public class SecurityGroupRuleOptions extends BaseListOptions<SecurityGroupRuleO
     private SecurityGroupRuleOptions() {
     }
 
+    public SecurityGroupRuleOptions id(String id) {
+        return add("id", id);
+    }
+
     public SecurityGroupRuleOptions name(String name) {
         return add("name", name);
     }
@@ -27,28 +31,16 @@ public class SecurityGroupRuleOptions extends BaseListOptions<SecurityGroupRuleO
         return add("security_group_id", securityGroupId);
     }
 
-    public SecurityGroupRuleOptions protocol(String protocol) {
-        return add("protocol", protocol);
-    }
-
     public SecurityGroupRuleOptions direction(DirectionType direction) {
         return add("direction", direction.getDirection());
     }
 
-    public SecurityGroupRuleOptions ethertype(IPVersionStrType type) {
+    public SecurityGroupRuleOptions etherType(IPVersionStrType type) {
         return add("ethertype", type.getVersion());
     }
 
-    public SecurityGroupRuleOptions remoteIpPrefix(String remoteIpPrefix) {
-        return add("remote_ip_prefix", remoteIpPrefix);
-    }
-
-    public SecurityGroupRuleOptions id(String id) {
-        return add("id", id);
-    }
-
-    public SecurityGroupRuleOptions description(String description) {
-        return add("description", description);
+    public SecurityGroupRuleOptions protocol(String protocol) {
+        return add("protocol", protocol);
     }
 
     public SecurityGroupRuleOptions portRangeMin(String portRangeMin) {
@@ -57,6 +49,18 @@ public class SecurityGroupRuleOptions extends BaseListOptions<SecurityGroupRuleO
 
     public SecurityGroupRuleOptions portRangeMax(String portRangeMax) {
         return add("port_range_max", portRangeMax);
+    }
+
+    public SecurityGroupRuleOptions remoteIpPrefix(String remoteIpPrefix) {
+        return add("remote_ip_prefix", remoteIpPrefix);
+    }
+
+    public SecurityGroupRuleOptions remoteGroupId(String remoteGroupId) {
+        return add("remote_group_id", remoteGroupId);
+    }
+
+    public SecurityGroupRuleOptions description(String description) {
+        return add("description", description);
     }
 
     public static SecurityGroupRuleOptions create() {

@@ -49,8 +49,8 @@ public class SecurityGroupBlackRuleTests extends AbstractTest{
     @Test
     public void testCreateSgBlackRule() throws Exception{
         respondWith(JSON_SG_BLACK_RULE);
-        SecurityGroupBlackRule rule = Builders.sgBlackRule().securityGroupId(SG_ID).direction("ingress").ethertype("IPv4").portRangeMin("22").
-                portRangeMax("22").protocol("TCP").build();
+        SecurityGroupBlackRule rule = Builders.sgBlackRule().securityGroupId(SG_ID).direction("ingress").etherType("IPv4").portRangeMin(22).
+                portRangeMax(22).protocol("TCP").build();
         SecurityGroupBlackRule sgRule = osv3().networking().sgBlackRule().create(rule);
         assertEquals(sgRule.getSecurityGroupId(), SG_ID);
     }
@@ -58,8 +58,8 @@ public class SecurityGroupBlackRuleTests extends AbstractTest{
     @Test
     public void testDeleteSgBlackRule() throws Exception{
         respondWith(JSON_SG_BLACK_RULE);
-        SecurityGroupBlackRule rule = Builders.sgBlackRule().securityGroupId(SG_ID).direction("ingress").ethertype("IPv4").portRangeMin("22").
-                portRangeMax("22").protocol("TCP").build();
+        SecurityGroupBlackRule rule = Builders.sgBlackRule().securityGroupId(SG_ID).direction("ingress").etherType("IPv4").portRangeMin(22).
+                portRangeMax(22).protocol("TCP").build();
         SecurityGroupBlackRule sgRule = osv3().networking().sgBlackRule().create(rule);
         assertEquals(sgRule.getSecurityGroupId(), SG_ID);
     }

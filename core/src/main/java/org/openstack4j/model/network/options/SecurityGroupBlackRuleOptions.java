@@ -1,5 +1,8 @@
 package org.openstack4j.model.network.options;
 
+import org.openstack4j.model.network.DirectionType;
+import org.openstack4j.model.network.IPVersionStrType;
+
 /**
  * Security group black rule options
  */
@@ -31,7 +34,7 @@ public class SecurityGroupBlackRuleOptions extends BaseListOptions<SecurityGroup
      * @param direction the identifier of the sg black rule
      * @return options
      */
-    public SecurityGroupBlackRuleOptions direction(String direction){ return add("direction", direction);}
+    public SecurityGroupBlackRuleOptions direction(DirectionType direction){ return add("direction", direction.getDirection());}
 
     /**
      * @param protocol the protocol of the sg black rule
@@ -40,10 +43,10 @@ public class SecurityGroupBlackRuleOptions extends BaseListOptions<SecurityGroup
     public SecurityGroupBlackRuleOptions protocol(String protocol){ return add("protocol", protocol);}
 
     /**
-     * @param etherType the ethertype of the sg black rule
+     * @param type the ethertype of the sg black rule
      * @return options
      */
-    public SecurityGroupBlackRuleOptions etherType(String etherType){ return add("ethertype", etherType);}
+    public SecurityGroupBlackRuleOptions etherType(IPVersionStrType type){ return add("ethertype", type.getVersion());}
 
     /**
      * @param portRangeMin the port range min of the sg black rule
@@ -68,5 +71,11 @@ public class SecurityGroupBlackRuleOptions extends BaseListOptions<SecurityGroup
      * @return options
      */
     public SecurityGroupBlackRuleOptions remoteIpPrefix(String remoteIpPrefix){ return add("remote_ip_prefix", remoteIpPrefix);}
+
+    /**
+     * @param description the description of the sg black rule
+     * @return options
+     */
+    public SecurityGroupBlackRuleOptions description(String description){ return add("description", description);}
 
 }

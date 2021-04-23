@@ -120,6 +120,8 @@ public class PortListOptions extends BaseListOptions<PortListOptions> {
         return add("fixed_ips", "ip_address_substr=" + ipAddr);
     }
 
+    public PortListOptions id(String id) { return add("id", id);}
+
     public PortListOptions add(String key, String value) {
         putParams(key, value);
         return this;
