@@ -1,6 +1,7 @@
 package org.openstack4j.openstack.networking.domain.ext;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import com.google.common.base.MoreObjects;
@@ -64,12 +65,14 @@ public class NeutronAclRule implements AclRule {
     private String destinationIpAddress;
 
     @JsonProperty("source_port")
+    @JsonInclude
     private String sourcePort;
 
     @JsonProperty
     private String direction;
 
     @JsonProperty("destination_port")
+    @JsonInclude
     private String destinationPort;
 
     @JsonProperty
